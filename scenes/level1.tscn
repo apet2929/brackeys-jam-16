@@ -1,0 +1,63 @@
+[gd_scene format=3 uid="uid://dn564ct3s2kg4"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_h1dum"]
+sky_top_color = Color(0.20399365, 0.42910215, 0.82656664, 1)
+sky_horizon_color = Color(0.76772285, 0.6303941, 0.42803413, 1)
+
+[sub_resource type="Sky" id="Sky_bcj7h"]
+sky_material = SubResource("ProceduralSkyMaterial_h1dum")
+
+[sub_resource type="Environment" id="Environment_7nxc4"]
+background_mode = 2
+sky = SubResource("Sky_bcj7h")
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_t65tg"]
+exposure_multiplier = 1.462
+auto_exposure_scale = 18.24
+auto_exposure_speed = 15.27
+dof_blur_far_distance = 0.83
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3g4x6"]
+albedo_color = Color(0.49639726, 0.29867688, 0.26607123, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_7nxc4"]
+material = SubResource("StandardMaterial3D_3g4x6")
+size = Vector2(1000, 1000)
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_7nxc4"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_7nxc4"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_7nxc4"]
+
+[node name="Level1" type="Node3D" unique_id=1844410819]
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=219296229]
+transform = Transform3D(1, 0, 0, 0, 0.963168, 0.26890042, 0, -0.26890042, 0.96316797, 0, 2.8166332, 0)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1351860886]
+environment = SubResource("Environment_7nxc4")
+camera_attributes = SubResource("CameraAttributesPractical_t65tg")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=1195375294]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 61.34642, -3.6503634)
+light_energy = 100.0
+omni_range = 4096.0
+
+[node name="Floor" type="StaticBody3D" parent="." unique_id=1978038277]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+
+[node name="Floor" type="MeshInstance3D" parent="Floor" unique_id=575630577]
+mesh = SubResource("PlaneMesh_7nxc4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor" unique_id=851557784]
+shape = SubResource("WorldBoundaryShape3D_7nxc4")
+
+[node name="Player" type="CharacterBody3D" parent="." unique_id=2054459468]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.6951032)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Player" unique_id=410443666]
+mesh = SubResource("CapsuleMesh_7nxc4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player" unique_id=265035469]
+shape = SubResource("CapsuleShape3D_7nxc4")

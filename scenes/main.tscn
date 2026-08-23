@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://c60ppto2jqd1r"]
+
+[ext_resource type="Script" uid="uid://cobv4x4ftqfaq" path="res://scripts/main.gd" id="1_o5qli"]
+
+[node name="Main" type="Node3D" unique_id=733717212]
+script = ExtResource("1_o5qli")
+
+[node name="UIRoot" type="Control" parent="." unique_id=1313477241]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
