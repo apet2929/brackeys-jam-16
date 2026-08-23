@@ -23,6 +23,11 @@ Globals="*uid://cpfbgdaopjjfk"
 
 window/stretch/mode="viewport"
 
+[global_group]
+
+interactable="things you can talk with"
+pickupable=""
+
 [input]
 
 jump={

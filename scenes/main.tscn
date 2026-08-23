@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://c60ppto2jqd1r"]
 
 [ext_resource type="Script" uid="uid://cobv4x4ftqfaq" path="res://scripts/main.gd" id="1_o5qli"]
+[ext_resource type="Script" uid="uid://dt0vy6u7msawf" path="res://scripts/ui.gd" id="2_tbgi4"]
 [ext_resource type="PackedScene" uid="uid://dxbcoagxb86wv" path="res://scenes/player.tscn" id="3_jyhfs"]
 [ext_resource type="PackedScene" uid="uid://cwj6otb0ncbxh" path="res://scenes/box.tscn" id="4_jyhfs"]
 
@@ -33,7 +34,7 @@ size = Vector2(1000, 1000)
 [node name="Main" type="Node3D" unique_id=733717212]
 script = ExtResource("1_o5qli")
 
-[node name="UIRoot" type="Control" parent="." unique_id=1313477241]
+[node name="UI" type="Control" parent="." unique_id=1313477241]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -42,12 +43,16 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+script = ExtResource("2_tbgi4")
 
 [node name="Player" parent="." unique_id=1681205958 instance=ExtResource("3_jyhfs")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0454581, 2.7433205)
 
-[node name="box" parent="." unique_id=1556161799 instance=ExtResource("4_jyhfs")]
+[node name="box" parent="." unique_id=844165601 instance=ExtResource("4_jyhfs")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.039785147, -4.175082)
+
+[node name="cutscene_box" parent="." unique_id=884456906 instance=ExtResource("4_jyhfs")]
+do_cutscene = true
 
 [node name="WorldEnvironment2" type="WorldEnvironment" parent="." unique_id=146726571]
 environment = SubResource("Environment_tbgi4")

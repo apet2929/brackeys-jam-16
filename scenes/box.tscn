@@ -1,6 +1,6 @@
 [gd_scene format=4 uid="uid://cwj6otb0ncbxh"]
 
-[ext_resource type="Script" path="res://scripts/box.gd" id="1_3inec"]
+[ext_resource type="Script" uid="uid://cc7yjvgwk286g" path="res://scripts/box.gd" id="1_3inec"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ks2v0"]
 size = Vector3(1.31572, 0.797729, 0.972595)
@@ -65,17 +65,15 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_oxwhp")
 
-[node name="box" type="Node3D" unique_id=844165601]
-
-[node name="box_rigidbody3d" type="RigidBody3D" parent="." unique_id=365443437 groups=["pickupable"]]
+[node name="box" type="RigidBody3D" unique_id=884456906 groups=["pickupable"]]
 collision_layer = 3
 mass = 3.0
 script = ExtResource("1_3inec")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="box_rigidbody3d" unique_id=1471912288]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=610798726]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00512695, 0.0967407, -0.00260925)
 shape = SubResource("BoxShape3D_ks2v0")
 
-[node name="Cube" type="MeshInstance3D" parent="box_rigidbody3d" unique_id=1775244472]
+[node name="Cube" type="MeshInstance3D" parent="." unique_id=1436593868]
 transform = Transform3D(0.635, 0, 0, 0, 0.3, 0, 0, 0, 0.463, 0, 0, 0)
 mesh = SubResource("ArrayMesh_ap4dh")

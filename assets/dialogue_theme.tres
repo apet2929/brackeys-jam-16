@@ -1,0 +1,6 @@
+[gd_resource type="Theme" format=3 uid="uid://blgtyb1vfutyc"]
+
+[resource]
+LineDisplay/base_type = &"RichTextLabel"
+NameDisplay/base_type = &"RichTextLabel"
+RichTextLabel/font_sizes/normal_font_size = 30

@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://bfnfkixbf2omg"]
+
+[ext_resource type="PackedScene" uid="uid://lqk6bxg1ir6g" path="res://scenes/dialogue_display.tscn" id="1_tf28q"]
+[ext_resource type="Theme" uid="uid://blgtyb1vfutyc" path="res://assets/dialogue_theme.tres" id="2_p6b0b"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x4adw"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.32941177, 0.101960786, 0.101960786, 0.6)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[node name="Margin" unique_id=663509831 instance=ExtResource("1_tf28q")]
+theme = ExtResource("2_p6b0b")
+
+[node name="Div" parent="." index="0" unique_id=429180878]
+theme_override_styles/panel = SubResource("StyleBoxFlat_x4adw")

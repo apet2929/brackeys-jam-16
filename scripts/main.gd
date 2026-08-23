@@ -11,3 +11,4 @@ extends Node3D
 func _ready() -> void:
 	current_level = level_scene.instantiate()
 	#self.add_child(current_level)
+	
