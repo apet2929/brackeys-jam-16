@@ -1,0 +1,81 @@
+[gd_scene format=3 uid="uid://dxbcoagxb86wv"]
+
+[ext_resource type="Script" uid="uid://05v3qltu7bum" path="res://scripts/player.gd" id="1_3vyb7"]
+[ext_resource type="Script" uid="uid://gprx7oppjjui" path="res://scripts/fp_camera.gd" id="2_g2els"]
+[ext_resource type="Texture2D" uid="uid://dc17f5aqxhuy4" path="res://assets/sprites/reticle.png" id="3_qhqgy"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_u8vuu"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_3vyb7"]
+
+[node name="Player" type="CharacterBody3D" unique_id=1432795309]
+script = ExtResource("1_3vyb7")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1129352417]
+shape = SubResource("CapsuleShape3D_u8vuu")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1122489772]
+mesh = SubResource("CapsuleMesh_3vyb7")
+
+[node name="head" type="Node3D" parent="." unique_id=134423667]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.590975, 0)
+script = ExtResource("2_g2els")
+
+[node name="Camera3D" type="Camera3D" parent="head" unique_id=1311345523]
+fov = 100.0
+
+[node name="interact_ray" type="RayCast3D" parent="head/Camera3D" unique_id=1062038984]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, -2.18557e-07, -1, 0, 5, -4.37114e-08, 0, 0, 0)
+collision_mask = 3
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1566568706]
+
+[node name="BoxContainer" type="BoxContainer" parent="CanvasLayer" unique_id=1296070634]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -42.5
+offset_top = 5.0
+offset_right = 42.5
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="interact_text" type="Label" parent="CanvasLayer/BoxContainer" unique_id=319115721]
+unique_name_in_owner = true
+layout_mode = 2
+text = "(RMB) Interact"
+
+[node name="Control2" type="Control" parent="CanvasLayer" unique_id=862378590]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control2" unique_id=662259256]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -10.0
+offset_top = -10.0
+offset_right = 10.0
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_qhqgy")
+expand_mode = 1
+
+[node name="hand" type="Node3D" parent="." unique_id=494760550]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.15325016, -0.8060951)
