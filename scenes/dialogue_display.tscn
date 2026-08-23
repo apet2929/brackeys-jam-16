@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://b6a2xxh8crnff" path="res://scripts/dialogue/dialogue_display.gd" id="1_ss684"]
 [ext_resource type="Theme" uid="uid://blgtyb1vfutyc" path="res://assets/dialogue_theme.tres" id="2_dkrc2"]
+[ext_resource type="Script" uid="uid://delgn2fknvosh" path="res://scripts/dialogue/responses_container.gd" id="3_em7o4"]
 
 [node name="Margin" type="MarginContainer" unique_id=663509831]
 anchors_preset = 15
@@ -46,3 +47,8 @@ text = "Hello world"
 fit_content = true
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Responses" type="VBoxContainer" parent="Div/Padding/VBoxContainer" unique_id=1228126757]
+unique_name_in_owner = true
+layout_mode = 2
+script = ExtResource("3_em7o4")

@@ -3,7 +3,16 @@ class_name SpeakerLines
 var dialogue_display_scene = preload("res://scenes/dialogue_display.tscn")
 var speaker: String
 var lines: Array[String]
-var response # (SpeakerLines or Array[SpeakerLines])
+var next_line: SpeakerLines = null # optional, next SpeakerLines to show after this one
+var response_options: Array[Response] = [] # optional, selectable responses for the player
+
+class Response:
+	var response_text: String
+	var next_lines: SpeakerLines # SpeakerLines to display when this response is selected
+	func _init(text: String, next_lines: SpeakerLines):
+		self.response_text = text
+		self.next_lines = next_lines
+	
 
 func _init(speaker: String, lines: Array[String], dialogue_scene:PackedScene=null):
 	self.lines = lines
@@ -14,15 +23,8 @@ func _init(speaker: String, lines: Array[String], dialogue_scene:PackedScene=nul
 func display():
 	Globals.ui.start_dialogue(self)
 
-func add_response(r: SpeakerLines):
-	if response == null:
-		response = r
-	elif response is SpeakerLines:
-		response = [response, r]
-	elif response is Array:
-		response.append(r)
-	return r
-
+func has_response_options():
+	return len(self.response_options) > 0
 
 
 # func init_portrait():

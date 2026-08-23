@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://p160okqjxan1"]
+
+[ext_resource type="Theme" uid="uid://blgtyb1vfutyc" path="res://assets/dialogue_theme.tres" id="1_3rd7v"]
+[ext_resource type="Script" uid="uid://cfxuxxil46eq0" path="res://scripts/dialogue/dialogue_response_option.gd" id="2_enkwr"]
+
+[node name="Response" type="PanelContainer" unique_id=732603912]
+theme = ExtResource("1_3rd7v")
+theme_type_variation = &"Response"
+script = ExtResource("2_enkwr")
+
+[node name="Text" type="RichTextLabel" parent="." unique_id=1159771683]
+layout_mode = 2
+theme_type_variation = &"ResponseText"
+text = "Response option 1"
+fit_content = true

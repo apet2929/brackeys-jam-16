@@ -1,6 +1,16 @@
 [gd_resource type="Theme" format=3 uid="uid://blgtyb1vfutyc"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7nxc4"]
+
 [resource]
 LineDisplay/base_type = &"RichTextLabel"
 NameDisplay/base_type = &"RichTextLabel"
+Response/base_type = &"PanelContainer"
+Response/styles/panel = SubResource("StyleBoxFlat_7nxc4")
+ResponseSelected/base_type = &"PanelContainer"
+ResponseText/base_type = &"RichTextLabel"
+ResponseText/font_sizes/normal_font_size = 20
+ResponseTextSelected/base_type = &"RichTextLabel"
+ResponseTextSelected/colors/default_color = Color(0.94436866, 0.9234832, 0.35146734, 1)
+ResponseTextSelected/font_sizes/normal_font_size = 20
 RichTextLabel/font_sizes/normal_font_size = 30
