@@ -3,7 +3,7 @@ extends Node3D
 signal foot_step
 
 @export var gobot_model: MeshInstance3D
-#@export var blink = true : set = set_blink
+var blink = true : set = set_blink
 @export var left_eye_mat_override: String
 @export var right_eye_mat_override: String
 @export var open_eye: CompressedTexture2D
@@ -25,11 +25,11 @@ var move_speed = 0.0 : set = set_move_speed
 @onready var left_eye_mat: StandardMaterial3D = gobot_model.get(left_eye_mat_override)
 @onready var right_eye_mat: StandardMaterial3D = gobot_model.get(right_eye_mat_override)
 
-
 func _ready():
 	blink_timer.connect(
 			"timeout",
 			func():
+				print("blink eyes")
 				left_eye_mat.albedo_texture = close_eye
 				right_eye_mat.albedo_texture = close_eye
 				closed_eyes_timer.start(0.2)
@@ -38,21 +38,21 @@ func _ready():
 	closed_eyes_timer.connect(
 			"timeout",
 			func():
+				print("closed eyes")
 				left_eye_mat.albedo_texture = open_eye
 				right_eye_mat.albedo_texture = open_eye
 				blink_timer.start(randf_range(1.0, 8.0))
 	)
 
-
-##func set_blink(state: bool):
-	##if blink == state:
-	##	return
-	##blink = state
-	##if blink:
-	##	blink_timer.start(0.2)
-	##else:
-		#blink_timer.stop()
-	##	closed_eyes_timer.stop()
+func set_blink(state: bool):
+	if blink == state:
+		return
+	blink = state
+	if blink:
+		blink_timer.start(0.2)
+	else:
+		blink_timer.stop()
+		closed_eyes_timer.stop()
 
 
 func set_move_speed(value: float):

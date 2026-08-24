@@ -2,8 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://dxbcoagxb86wv" path="res://scenes/player.tscn" id="1_1ma6d"]
 [ext_resource type="PackedScene" uid="uid://cwj6otb0ncbxh" path="res://scenes/box.tscn" id="2_5y2tm"]
-[ext_resource type="PackedScene" uid="uid://cy36aygvs66pn" path="res://assets/gobot/gobot_skin.tscn" id="3_a0phv"]
 [ext_resource type="PackedScene" uid="uid://b50ifj6jw7wrf" path="res://scenes/test_environment.tscn" id="4_5y2tm"]
+[ext_resource type="PackedScene" uid="uid://bovaiyxxqciui" path="res://scenes/npc.tscn" id="4_a0phv"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_t037b"]
 sky_top_color = Color(0.20399365, 0.42910215, 0.82656664, 1)
@@ -50,7 +50,8 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Player" parent="." unique_id=1432795309 instance=ExtResource("1_1ma6d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0454581, 2.7433205)
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.8304473, 16.073414)
 
 [node name="box" parent="." unique_id=844165601 instance=ExtResource("2_5y2tm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.039785147, -4.175082)
@@ -73,11 +74,11 @@ mesh = SubResource("PlaneMesh_eyqwb")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Floor" unique_id=1811273550]
 shape = SubResource("WorldBoundaryShape3D_ub0t1")
 
-[node name="GobotSkin2" parent="." unique_id=2033172317 instance=ExtResource("3_a0phv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.5415072, 0)
-
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="." unique_id=1611168977]
 navigation_mesh = SubResource("NavigationMesh_810np")
 
 [node name="test_environment" parent="NavigationRegion3D" unique_id=275823156 instance=ExtResource("4_5y2tm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.7025537, 0)
+
+[node name="npc" parent="." unique_id=2075161850 instance=ExtResource("4_a0phv")]
+speed = 5

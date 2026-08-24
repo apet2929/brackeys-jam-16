@@ -1,4 +1,5 @@
 extends CharacterBody3D
+class_name Player
 
 const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
@@ -6,6 +7,7 @@ const MASS = 80
 const PUSH_FORCE = 5
 var currently_held = null
 var currently_held_layer = 0
+var crouched = false
 
 func _physics_process(delta: float) -> void:
 	if currently_held:
@@ -63,3 +65,28 @@ func _push_away_rigid_bodies():
 			var push_force = mass_ratio * PUSH_FORCE
 			col.apply_impulse(push_dir * velocity_diff_in_push_dir * push_force, obj.get_position() - col.global_position)
 			print("Collider: %s, push_dir: %s" % [col, push_dir])
+
+func _process(delta: float) -> void: 
+	if Input.is_action_pressed("crouch"):
+		_crouch()
+	else:
+		_uncrouch()
+			
+func _crouch():
+	if not crouched:
+		#Use a tween to make it smoother
+		var t := create_tween()
+		#Tween y axis of the collision shape to 0.5 in 0.1 second
+		print("crouch")
+		#t.tween_property($CollisionShape3D, "scale:y", 0.5, 0.1)
+		t.tween_property($head, "position:y", 1, 0.1)
+		crouched = true
+	
+func _uncrouch():
+	if crouched:
+		var t := create_tween()
+		print("uncrouch")
+		#t.tween_property($CollisionShape3D, "scale:y", 1, 0.1)
+		t.tween_property($head, "position:y", 1.6, 0.1)
+		crouched = false
+	

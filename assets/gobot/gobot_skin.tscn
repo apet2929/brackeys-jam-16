@@ -2087,14 +2087,9 @@ nodes/StateMachine/node = SubResource("AnimationNodeStateMachine_fdt88")
 nodes/StateMachine/position = Vector2(0, 80)
 node_connections = [&"output", 0, &"HurtShot", &"FlipShot", 0, &"StateMachine", &"FlipShot", 1, &"Flip", &"HurtShot", 0, &"FlipShot", &"HurtShot", 1, &"Animation"]
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ydmyw"]
-radius = 0.5595703
-height = 1.6956482
-
 [node name="GobotSkin" type="Node3D" unique_id=2033172317 node_paths=PackedStringArray("gobot_model")]
 script = ExtResource("1_rwke8")
 gobot_model = NodePath("gobot/Armature/Skeleton3D/Gobot")
-blink = false
 left_eye_mat_override = "surface_material_override/1"
 right_eye_mat_override = "surface_material_override/2"
 open_eye = ExtResource("3_aysq5")
@@ -2107,14 +2102,14 @@ bones/0/position = Vector3(0.125361, 0.0989139, 0.0728901)
 bones/0/rotation = Quaternion(0.77254915, 0.10769103, -0.13622104, 0.61074907)
 bones/1/position = Vector3(-0.109875, 0.0989111, -0.0510765)
 bones/1/rotation = Quaternion(0.6793683, -0.31008515, 0.39223418, 0.5370832)
-bones/2/position = Vector3(0, 0.3494732, 0)
-bones/2/rotation = Quaternion(0.06974139, 0.020754706, -0.001451308, 0.9973482)
-bones/3/rotation = Quaternion(1, -5.8109486e-11, -7.50308e-08, 3.725919e-09)
-bones/4/rotation = Quaternion(-0.5024479, -0.1402257, -0.051339477, 0.8516145)
-bones/5/rotation = Quaternion(0.39230862, 1.0607831e-06, -1.3391105e-05, 0.91983366)
-bones/6/rotation = Quaternion(-0.22890843, 0.5406991, 0.23643968, 0.7741717)
-bones/7/rotation = Quaternion(0.5294864, -9.90264e-07, 1.8125193e-05, 0.84831846)
-bones/8/rotation = Quaternion(-0.6872175, -0.25577042, -0.6174834, 0.28465405)
+bones/2/position = Vector3(0, 0.35169485, 0)
+bones/2/rotation = Quaternion(0.06975627, 0.0022724688, -0.00015890591, 0.99756145)
+bones/3/rotation = Quaternion(1, 1.2262024e-12, -7.55077e-08, 7.4505797e-09)
+bones/4/rotation = Quaternion(-0.48914942, -0.1582608, -0.058170453, 0.85574675)
+bones/5/rotation = Quaternion(0.38700724, 1.0453317e-06, -1.3217161e-05, 0.92207676)
+bones/6/rotation = Quaternion(-0.23857446, 0.5239641, 0.22308753, 0.78662306)
+bones/7/rotation = Quaternion(0.51908314, -9.932422e-07, 1.7773198e-05, 0.8547238)
+bones/8/rotation = Quaternion(-0.71088487, -0.24441987, -0.590082, 0.29445735)
 bones/9/rotation = Quaternion(2.1693694e-07, 5.3554083e-07, -0.3950289, 0.91866875)
 bones/10/rotation = Quaternion(-0.28973204, -0.6374582, -0.21743803, 0.6800171)
 bones/11/rotation = Quaternion(0.48790604, -0.017439902, 0.008545421, 0.87268007)
@@ -2122,7 +2117,7 @@ bones/12/rotation = Quaternion(-0.3712239, -0.0019769692, 0.005853659, 0.9285228
 bones/13/rotation = Quaternion(-0.5023331, 1.5004906e-05, -2.8505408e-05, 0.86467415)
 bones/14/rotation = Quaternion(-0.3712239, -0.0019769794, 0.0058536893, 0.9285228)
 bones/15/rotation = Quaternion(-0.5023331, 1.4999904e-05, -2.8506805e-05, 0.86467415)
-bones/16/rotation = Quaternion(-0.62740916, 0.28090614, 0.6781678, 0.25988048)
+bones/16/rotation = Quaternion(-0.6003543, 0.29087344, 0.70223117, 0.248674)
 bones/17/rotation = Quaternion(2.2720293e-07, -5.847489e-07, 0.3950289, 0.91866875)
 bones/18/rotation = Quaternion(-0.28973204, 0.6374582, 0.21743803, 0.6800171)
 bones/19/rotation = Quaternion(0.48790604, 0.017439902, -0.008545411, 0.87268007)
@@ -2166,11 +2161,5 @@ parameters/HurtShot/active = false
 parameters/HurtShot/internal_active = false
 parameters/HurtShot/request = 0
 parameters/StateMachine/Move/Add2/add_amount = 1.0
-
-[node name="CharacterBody3D" type="CharacterBody3D" parent="." unique_id=1357679020]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D" unique_id=54401917]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.665612, 0)
-shape = SubResource("CapsuleShape3D_ydmyw")
 
 [editable path="gobot"]
