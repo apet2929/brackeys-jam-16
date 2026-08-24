@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bi7txy2alandn"
-path.s3tc="res://.godot/imported/notepad_clipboard.jpg-3ea113bfac8d0a375538459570198d7b.s3tc.ctex"
+path.s3tc="res://.godot/imported/notepad_clipboard.jpg-0e90bf0eb0e817a3e2367330a319b5ba.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://assets/notepad/notepad_clipboard.jpg"
-dest_files=["res://.godot/imported/notepad_clipboard.jpg-3ea113bfac8d0a375538459570198d7b.s3tc.ctex"]
+source_file="res://assets/models/notepad/notepad_clipboard.jpg"
+dest_files=["res://.godot/imported/notepad_clipboard.jpg-0e90bf0eb0e817a3e2367330a319b5ba.s3tc.ctex"]
 
 [params]
 

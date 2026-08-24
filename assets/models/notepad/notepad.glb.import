@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://dhtcjqi3sos3g"
-path="res://.godot/imported/notepad.glb-e19129c0badfb78a8b271ea63e896aa9.scn"
+path="res://.godot/imported/notepad.glb-c1fe256176d09e5e0d397c949f964f6e.scn"
 
 [deps]
 
-source_file="res://assets/notepad/notepad.glb"
-dest_files=["res://.godot/imported/notepad.glb-e19129c0badfb78a8b271ea63e896aa9.scn"]
+source_file="res://assets/models/notepad/notepad.glb"
+dest_files=["res://.godot/imported/notepad.glb-c1fe256176d09e5e0d397c949f964f6e.scn"]
 
 [params]
 

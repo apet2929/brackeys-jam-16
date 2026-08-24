@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b0hr3qdwds5km"
-path.s3tc="res://.godot/imported/notepad_notepad.jpg-9fecf5a548e6aa7dccdc19055156eb96.s3tc.ctex"
+path.s3tc="res://.godot/imported/notepad_notepad.jpg-826c3cc10539ccbfb9eb353746af3ba4.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://assets/notepad/notepad_notepad.jpg"
-dest_files=["res://.godot/imported/notepad_notepad.jpg-9fecf5a548e6aa7dccdc19055156eb96.s3tc.ctex"]
+source_file="res://assets/models/notepad/notepad_notepad.jpg"
+dest_files=["res://.godot/imported/notepad_notepad.jpg-826c3cc10539ccbfb9eb353746af3ba4.s3tc.ctex"]
 
 [params]
 
