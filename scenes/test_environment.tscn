@@ -23,7 +23,7 @@ data = PackedVector3Array(-12.6001, 9.963799, -11.9085, -10.694099, 9.3913, -10.
 
 [node name="test_environment" unique_id=275823156 instance=ExtResource("1_b3mux")]
 
-[node name="Cylinder" parent="." index="0" unique_id=1407154589]
+[node name="Cylinder" parent="." index="0" unique_id=811293902]
 material_override = ExtResource("2_b3mux")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Cylinder" index="0" unique_id=1791040615]
@@ -31,7 +31,7 @@ material_override = ExtResource("2_b3mux")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Cylinder/StaticBody3D" index="0" unique_id=1606112783]
 shape = SubResource("ConcavePolygonShape3D_b3mux")
 
-[node name="Environment" parent="." index="1" unique_id=539003651]
+[node name="Environment" parent="." index="1" unique_id=1030824665]
 material_override = ExtResource("2_b3mux")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Environment" index="0" unique_id=1732019627]
@@ -39,7 +39,7 @@ material_override = ExtResource("2_b3mux")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/StaticBody3D" index="0" unique_id=1950585904]
 shape = SubResource("ConcavePolygonShape3D_nbain")
 
-[node name="Ramp" parent="." index="2" unique_id=1416043408]
+[node name="Ramp" parent="." index="2" unique_id=2098772768]
 material_override = ExtResource("2_b3mux")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Ramp" index="0" unique_id=1711500564]
@@ -47,7 +47,7 @@ material_override = ExtResource("2_b3mux")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Ramp/StaticBody3D" index="0" unique_id=1071222886]
 shape = SubResource("ConcavePolygonShape3D_8ya4j")
 
-[node name="Sphere" parent="." index="3" unique_id=106213839]
+[node name="Sphere" parent="." index="3" unique_id=398735981]
 material_override = ExtResource("2_b3mux")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Sphere" index="0" unique_id=2136001211]
@@ -55,7 +55,7 @@ material_override = ExtResource("2_b3mux")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Sphere/StaticBody3D" index="0" unique_id=1790876017]
 shape = SubResource("ConcavePolygonShape3D_5qein")
 
-[node name="Wall" parent="." index="4" unique_id=1147244077]
+[node name="Wall" parent="." index="4" unique_id=1746430937]
 surface_material_override/0 = ExtResource("2_b3mux")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Wall" index="0" unique_id=1073709798]
@@ -63,7 +63,7 @@ surface_material_override/0 = ExtResource("2_b3mux")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Wall/StaticBody3D" index="0" unique_id=937964647]
 shape = SubResource("ConcavePolygonShape3D_frvy6")
 
-[node name="Wall_001" parent="." index="5" unique_id=1024865435]
+[node name="Wall_001" parent="." index="5" unique_id=1289248376]
 material_override = ExtResource("2_b3mux")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Wall_001" index="0" unique_id=1444996481]

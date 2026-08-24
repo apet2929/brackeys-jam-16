@@ -1,5 +1,7 @@
 [gd_resource type="Theme" format=3 uid="uid://blgtyb1vfutyc"]
 
+[ext_resource type="FontFile" uid="uid://dqtjp48hbyejs" path="res://assets/fonts/Carpathe/CarpatheBold.ttf" id="1_ddhsp"]
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7nxc4"]
 
 [resource]
@@ -14,3 +16,5 @@ ResponseTextSelected/base_type = &"RichTextLabel"
 ResponseTextSelected/colors/default_color = Color(0.94436866, 0.9234832, 0.35146734, 1)
 ResponseTextSelected/font_sizes/normal_font_size = 20
 RichTextLabel/font_sizes/normal_font_size = 30
+RichTextLabel/fonts/bold_font = ExtResource("1_ddhsp")
+RichTextLabel/fonts/normal_font = ExtResource("1_ddhsp")

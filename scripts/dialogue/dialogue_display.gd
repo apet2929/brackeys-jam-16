@@ -6,18 +6,12 @@ extends Control
 # styles for SpeakerName and Lines => RichTextLabel
 # styles for SpeakerName => NameDisplay variant
 # styles for Lines => LineDisplay variant
-
-signal response_selected(response: SpeakerLines.Response)
-
-func _ready() -> void:
-	%Responses.response_selected.connect((func (arg):
-		response_selected.emit(arg))
-	)
+@onready var responses_container: ResponsesContainer = %Responses
 
 func set_line(line: String, speaker: String):
 	%Lines.text = line
 	%SpeakerName.text = speaker
 
 func show_responses(responses: Array[SpeakerLines.Response]):
-	%Responses.set_responses(responses)
+	responses_container.set_responses(responses)
 	

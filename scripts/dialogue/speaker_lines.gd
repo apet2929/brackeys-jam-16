@@ -1,6 +1,7 @@
 class_name SpeakerLines
 
-var dialogue_display_scene = preload("res://scenes/dialogue_display.tscn")
+const DEFAULT_DISPLAY_SCENE_PATH = "res://scenes/dialogue_display.tscn"
+var dialogue_display_scene = null
 var speaker: String
 var lines: Array[String]
 var next_line: SpeakerLines = null # optional, next SpeakerLines to show after this one
@@ -19,6 +20,8 @@ func _init(speaker: String, lines: Array[String], dialogue_scene:PackedScene=nul
 	self.speaker = speaker
 	if dialogue_scene != null:
 		self.dialogue_display_scene = dialogue_scene
+	else:
+		self.dialogue_display_scene = preload(DEFAULT_DISPLAY_SCENE_PATH)
 		
 func display():
 	Globals.ui.start_dialogue(self)

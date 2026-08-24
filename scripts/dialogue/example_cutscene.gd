@@ -17,3 +17,11 @@ func _init() -> void:
 		SpeakerLines.Response.new("They most certainly are.", after_response_2),
 		SpeakerLines.Response.new("Where were you on the night of September 15th, 2024?", after_response_3)
 	]
+	
+	after_response_3.next_line = SpeakerLines.new("You",
+		[
+			"Bullshit, I know who you are.",
+			"Don't think you can fool me"
+		],
+		player_dialogue_scene
+	)
