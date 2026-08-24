@@ -1,0 +1,18 @@
+[gd_resource type="Compositor" format=3 uid="uid://cd3pypt5f1gmv"]
+
+[ext_resource type="Script" uid="uid://d4mhlr4ml0k7k" path="res://assets/shaders/post_process_shader.gd" id="1_xhsaf"]
+
+[sub_resource type="CompositorEffect" id="CompositorEffect_xhsaf"]
+resource_local_to_scene = false
+resource_name = ""
+enabled = true
+effect_callback_type = 4
+needs_motion_vectors = false
+needs_normal_roughness = false
+script = ExtResource("1_xhsaf")
+shader_code = "float gray = color.r * 0.2125 + color.g * 0.7154 + color.b * 0.0721;
+color.rgb = vec3(gray);"
+metadata/_custom_type_script = "uid://d4mhlr4ml0k7k"
+
+[resource]
+compositor_effects = Array[CompositorEffect]([SubResource("CompositorEffect_xhsaf")])

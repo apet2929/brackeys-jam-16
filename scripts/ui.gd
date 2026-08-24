@@ -16,6 +16,9 @@ func _ready() -> void:
 
 func update_timer(time):
 	$Timer.value = Globals.main.MAX_TIME - time
+	
+func in_dialogue() -> bool:
+	return current_dialogue != null
 
 func start_dialogue(dialogue_lines: SpeakerLines):
 	set_dialogue(dialogue_lines)

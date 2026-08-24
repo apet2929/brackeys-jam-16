@@ -9,6 +9,15 @@ var currently_held = null
 var currently_held_layer = 0
 var crouched = false
 
+func _ready() -> void:
+	Globals.ui.dialogue_start.connect(
+		(func (_arg):
+			self.process_mode = Node.PROCESS_MODE_DISABLED))
+	
+	Globals.ui.dialogue_end.connect(
+		(func ():
+			self.process_mode = Node.PROCESS_MODE_INHERIT))
+
 func _physics_process(delta: float) -> void:
 	if currently_held:
 		currently_held.gravity_scale = 0
@@ -50,7 +59,8 @@ func _physics_process(delta: float) -> void:
 		velocity.z = move_toward(velocity.z, 0, SPEED)
 	
 	_push_away_rigid_bodies()
-	move_and_slide()
+	if !Globals.ui.in_dialogue(): # one last physics process seems to go through after pausing/unpausing node, causing error in Godot physics processing  
+		move_and_slide()
 
 func _push_away_rigid_bodies():
 	for i in get_slide_collision_count():

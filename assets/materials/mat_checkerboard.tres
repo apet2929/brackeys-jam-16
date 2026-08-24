@@ -5,6 +5,6 @@
 [resource]
 render_priority = 0
 shader = ExtResource("1_g6sfa")
-shader_parameter/tiles = 10.0
+shader_parameter/square_size = 1.0
 shader_parameter/color_a = Color(1, 1, 1, 1)
 shader_parameter/color_b = Color(0, 0, 0, 1)

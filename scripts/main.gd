@@ -7,7 +7,9 @@ extends Node3D
 signal current_time_updated(new_current_time)
 var current_time = 0.0
 const MAX_TIME = 100
-var first_input_captured = false
+
+# In web builds, we can't capture mouse input until atleast 1 input event is registered
+var first_input_captured = false 
 
 func _ready() -> void:
 	$UI.dialogue_end.connect(increment_time)

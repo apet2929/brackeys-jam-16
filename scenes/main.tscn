@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cwj6otb0ncbxh" path="res://scenes/box.tscn" id="4_jyhfs"]
 [ext_resource type="PackedScene" uid="uid://b50ifj6jw7wrf" path="res://scenes/test_environment.tscn" id="5_tefeu"]
 [ext_resource type="PackedScene" uid="uid://bovaiyxxqciui" path="res://scenes/npc.tscn" id="6_o6xl0"]
+[ext_resource type="Compositor" uid="uid://cd3pypt5f1gmv" path="res://assets/main_compositor.tres" id="6_tipki"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_tipki"]
 sky_top_color = Color(0.20399365, 0.42910215, 0.82656664, 1)
@@ -20,7 +21,6 @@ background_mode = 2
 sky = SubResource("Sky_bcj7h")
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_choun"]
-exposure_multiplier = 1.462
 auto_exposure_scale = 18.24
 auto_exposure_speed = 15.27
 dof_blur_far_distance = 0.83
@@ -35,6 +35,7 @@ agent_max_climb = 0.1
 script = ExtResource("1_o5qli")
 
 [node name="UI" type="Control" parent="." unique_id=1313477241]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -65,15 +66,16 @@ texture_progress = ExtResource("3_o6xl0")
 
 [node name="Player" parent="." unique_id=1432795309 instance=ExtResource("3_jyhfs")]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.8304473, 16.073414)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1561297, -1.8304473, 16.073414)
 
 [node name="box" parent="." unique_id=884456906 instance=ExtResource("4_jyhfs")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.7297361, 10.605847)
 do_cutscene = true
 
-[node name="WorldEnvironment2" type="WorldEnvironment" parent="." unique_id=461801802]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=461801802]
 environment = SubResource("Environment_85g3d")
 camera_attributes = SubResource("CameraAttributesPractical_choun")
+compositor = ExtResource("6_tipki")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=2036332589]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 61.34642, -3.6503634)
@@ -84,7 +86,7 @@ omni_range = 4096.0
 navigation_mesh = SubResource("NavigationMesh_ya4ey")
 
 [node name="test_environment" parent="NavigationRegion3D" unique_id=275823156 instance=ExtResource("5_tefeu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.7025537, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.9075642, -2.787363, 0.5215626)
 
 [node name="npc" parent="." unique_id=2075161850 instance=ExtResource("6_o6xl0")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, -0.5584538, 0)
