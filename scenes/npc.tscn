@@ -6,7 +6,7 @@
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_5y2tm"]
 radius = 0.5595703
-height = 1.6956482
+height = 1.7
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ydmyw"]
 radius = 0.61035156
@@ -23,6 +23,9 @@ shape = SubResource("CapsuleShape3D_5y2tm")
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, -0.014291406, 0)
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=201853479]
+avoidance_enabled = true
+height = 1.7
+radius = 0.7
 
 [node name="Area3D" type="Area3D" parent="." unique_id=620865454]
 script = ExtResource("3_rv78h")
