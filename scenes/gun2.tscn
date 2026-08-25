@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://b6owtjhp8k41j"]
+
+[ext_resource type="Script" uid="uid://cjiwkqmjxt047" path="res://scripts/gun.gd" id="1_02uti"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ymhr1"]
+albedo_color = Color(0.24313726, 0.80784315, 0.60784316, 1)
+metallic = 1.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_27d7j"]
+material = SubResource("StandardMaterial3D_ymhr1")
+size = Vector3(0.3, 0.438, 0.3)
+
+[sub_resource type="BoxMesh" id="BoxMesh_x77fm"]
+material = SubResource("StandardMaterial3D_ymhr1")
+size = Vector3(0.3, 0.3, 0.789)
+
+[node name="Gun2" type="Node3D" unique_id=127005046]
+script = ExtResource("1_02uti")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1908965810]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1543083, 0.0699113, -0.59701467)
+mesh = SubResource("BoxMesh_27d7j")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=1107563939]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1543083, 0.29913568, -0.7777296)
+mesh = SubResource("BoxMesh_x77fm")

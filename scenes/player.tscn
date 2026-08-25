@@ -33,6 +33,10 @@ unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, -2.18557e-07, -1, 0, 5, -4.37114e-08, 0, 0, 0)
 collision_mask = 3
 
+[node name="hand" type="Node3D" parent="head" unique_id=494760550]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.98, -0.806)
+
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1566568706]
 
 [node name="BoxContainer" type="BoxContainer" parent="CanvasLayer" unique_id=1296070634]
@@ -78,7 +82,3 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("3_qhqgy")
 expand_mode = 1
-
-[node name="hand" type="Node3D" parent="." unique_id=494760550]
-unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.85, -0.806)

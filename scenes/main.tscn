@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bfunimk1twiyy" path="res://assets/sprites/watch_face.jpg" id="3_o6xl0"]
 [ext_resource type="PackedScene" uid="uid://cwj6otb0ncbxh" path="res://scenes/box.tscn" id="4_jyhfs"]
 [ext_resource type="PackedScene" uid="uid://b50ifj6jw7wrf" path="res://scenes/test_environment.tscn" id="5_tefeu"]
+[ext_resource type="PackedScene" uid="uid://y7h0egftoyem" path="res://scenes/gun.tscn" id="6_85g3d"]
 [ext_resource type="PackedScene" uid="uid://bovaiyxxqciui" path="res://scenes/npc.tscn" id="6_o6xl0"]
 [ext_resource type="Compositor" uid="uid://cd3pypt5f1gmv" path="res://assets/main_compositor.tres" id="6_tipki"]
 
@@ -68,8 +69,9 @@ texture_progress = ExtResource("3_o6xl0")
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1561297, -1.8304473, 16.073414)
 
-[node name="box" parent="." unique_id=884456906 instance=ExtResource("4_jyhfs")]
+[node name="box" parent="." unique_id=884456906 groups=["interactable"] instance=ExtResource("4_jyhfs")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.7297361, 10.605847)
+item = ExtResource("6_85g3d")
 do_cutscene = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=461801802]

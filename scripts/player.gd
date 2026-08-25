@@ -5,11 +5,18 @@ const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
 const MASS = 80
 const PUSH_FORCE = 5
-var currently_held = null
+
+var currently_held: PhysicsBody3D = null
 var currently_held_layer = 0
 var crouched = false
 
+var inventory_held_item = null 
+var inventory_held_item_idx = -1
+var inventory: Array[PackedScene] = []
+
 func _ready() -> void:
+	add_to_inventory(load("res://scenes/gun.tscn"))
+	add_to_inventory(load("res://scenes/gun2.tscn"))
 	Globals.ui.dialogue_start.connect(
 		(func (_arg):
 			self.process_mode = Node.PROCESS_MODE_DISABLED))
@@ -24,31 +31,26 @@ func _physics_process(delta: float) -> void:
 		currently_held.global_position = currently_held.global_position.lerp(%hand.global_position, delta * 50.0)
 		currently_held.global_rotation = Vector3(0, %hand.global_rotation.y, 0)
 		if Input.is_action_just_released("interact"):
-			currently_held.gravity_scale = 1
-			currently_held.collision_layer = currently_held_layer
-			currently_held.apply_central_impulse((%head.global_basis.z) * -30)
-			currently_held = null
+			toss_held_item()
 	
 	%interact_text.hide()
 	if %interact_ray.is_colliding():
 		var target = %interact_ray.get_collider()
-		if target && (target.has_method("interact") || target.is_in_group("pickupable")):
+		if target && (target.is_in_group("interactable") || target.is_in_group("pickupable")):
 				%interact_text.show()
 				if Input.is_action_just_pressed("interact"):
-					if target.has_method("interact"):
+					if target.is_in_group("interactable"):
 						target.interact()
 					if target.is_in_group("pickupable"):
-						currently_held = target
-						currently_held_layer = target.collision_layer
-						target.collision_layer = 0
+						pickup_item(target)
 				
-				
+	
 	if not is_on_floor():
 		velocity += get_gravity()*delta
 		
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
-		
+	
 	var input_dir := Input.get_vector("left", "right", "forward", "back")
 	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	if direction:
@@ -61,6 +63,21 @@ func _physics_process(delta: float) -> void:
 	_push_away_rigid_bodies()
 	if !Globals.ui.in_dialogue(): # one last physics process seems to go through after pausing/unpausing node, causing error in Godot physics processing  
 		move_and_slide()
+	
+func pickup_item(target):
+	if inventory_held_item != null:
+		unequip_item_from_inventory()
+		inventory_held_item_idx = -1
+	currently_held = target
+	currently_held_layer = target.collision_layer
+	target.collision_layer = 0
+		
+func toss_held_item():
+	if currently_held is PhysicsBody3D:
+		currently_held.gravity_scale = 1
+		currently_held.collision_layer = currently_held_layer
+		currently_held.apply_central_impulse((%head.global_basis.z) * -30)
+	currently_held = null
 
 func _push_away_rigid_bodies():
 	for i in get_slide_collision_count():
@@ -81,7 +98,45 @@ func _process(delta: float) -> void:
 		_crouch()
 	else:
 		_uncrouch()
+		
+	if Input.is_action_just_pressed("use"):
+		if currently_held and currently_held.has_method("use"):
+			currently_held.use()
 			
+	if Input.is_action_just_released("ui_cancel"):
+		if inventory_held_item_idx != -1:
+			inventory_held_item_idx = -1
+			unequip_item_from_inventory()
+			
+			
+	if Input.is_action_just_released("ui_right"):
+		increment_inventory_held_item(1)
+		
+func increment_inventory_held_item(dir):
+	if inventory_held_item == null:
+		inventory_held_item_idx = 0
+	else:
+		unequip_item_from_inventory()
+		inventory_held_item_idx = (inventory_held_item_idx + dir) % len(inventory)
+	
+	equip_item_from_inventory(inventory_held_item_idx)
+
+func add_to_inventory(item: PackedScene):
+	if !inventory.has(item):
+		inventory.append(item)
+
+func equip_item_from_inventory(index: int):
+	inventory_held_item = inventory[index].instantiate()
+	print("Equipping %s" % inventory_held_item)
+	%hand.add_child(inventory_held_item)
+	inventory_held_item.global_position = %hand.global_position
+	inventory_held_item.global_rotation = Vector3(0, %hand.global_rotation.y, 0)
+
+func unequip_item_from_inventory():
+	%hand.remove_child(inventory_held_item)
+	inventory_held_item.queue_free()
+	inventory_held_item = null
+
 func _crouch():
 	if not crouched:
 		#Use a tween to make it smoother

@@ -1,6 +1,6 @@
 extends RigidBody3D
 
-@export var Item : PackedScene
+@export var item : PackedScene
 @export var do_cutscene = false
 var cutscene
 
@@ -15,5 +15,5 @@ func _process(delta: float) -> void:
 
 func interact() -> void:
 	print("box interacted, no clowns inside")
-	if do_cutscene:
-		cutscene.display()
+	if %Player and item:
+		%Player.add_to_inventory(item)
