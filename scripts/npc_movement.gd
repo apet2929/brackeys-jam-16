@@ -6,13 +6,14 @@ extends CharacterBody3D
 
 @onready var nav_agent = $NavigationAgent3D
 @onready var player = %Player
-@onready var skin = $GobotSkin2
+@onready var skin = $Sprite3D
 
 var colliding_player = null
 # State list: 
 # 0 = idle
 # 1 = moving
-# 2 = victory pose
+# 2 = chatting
+
 var state = 0
 
 var positions: Array
@@ -77,4 +78,15 @@ func _get_next_position():
 	
 	var time_to_wait = randf_range(3.0, 10.0)
 	await get_tree().create_timer(time_to_wait).timeout
-	state = 1
+	if state == 0: 
+		state = 1
+
+func interact() -> void:
+	var cutscene = ExampleCutscene.new()
+	self.state = 2
+	cutscene.display()
+	Globals.ui.dialogue_end.connect(on_cutscene_end)
+	
+func on_cutscene_end():
+	self.state = 0
+	

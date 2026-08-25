@@ -1,8 +1,9 @@
 [gd_scene format=3 uid="uid://bovaiyxxqciui"]
 
 [ext_resource type="Script" uid="uid://c78rd5w6n7ai5" path="res://scripts/npc_movement.gd" id="1_abqhh"]
-[ext_resource type="PackedScene" uid="uid://cy36aygvs66pn" path="res://assets/gobot/gobot_skin.tscn" id="2_rv78h"]
+[ext_resource type="Texture2D" uid="uid://c1vpxn2hqoupo" path="res://assets/sprites/guy/guy_animated_sprite.tres" id="3_7n8xq"]
 [ext_resource type="Script" uid="uid://cokpr7q6t46a0" path="res://scripts/npc_collisions.gd" id="3_rv78h"]
+[ext_resource type="Script" uid="uid://da6cqseo35v3s" path="res://scripts/npc_sprite.gd" id="4_7n8xq"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_5y2tm"]
 radius = 0.5595703
@@ -19,9 +20,6 @@ script = ExtResource("1_abqhh")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.665612, 0)
 shape = SubResource("CapsuleShape3D_5y2tm")
 
-[node name="GobotSkin2" parent="." unique_id=2033172317 instance=ExtResource("2_rv78h")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, -0.014291406, 0)
-
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=201853479]
 avoidance_enabled = true
 height = 1.7
@@ -33,3 +31,10 @@ script = ExtResource("3_rv78h")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1450279010]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.662588, 0)
 shape = SubResource("CapsuleShape3D_ydmyw")
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=1530717926]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0.8008841, 0)
+billboard = 1
+shaded = true
+texture = ExtResource("3_7n8xq")
+script = ExtResource("4_7n8xq")

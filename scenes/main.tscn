@@ -88,47 +88,47 @@ navigation_mesh = SubResource("NavigationMesh_ya4ey")
 [node name="test_environment" parent="NavigationRegion3D" unique_id=275823156 instance=ExtResource("5_tefeu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.9075642, -2.787363, 0.5215626)
 
-[node name="npc" parent="." unique_id=2075161850 instance=ExtResource("6_o6xl0")]
+[node name="npc" parent="." unique_id=2075161850 groups=["interactable"] instance=ExtResource("6_o6xl0")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, -0.5584538, 0)
 speed = 5
 nav_group_name = "nav_group_1"
 
-[node name="npc2" parent="." unique_id=2069918465 instance=ExtResource("6_o6xl0")]
+[node name="npc2" parent="." unique_id=2069918465 groups=["interactable"] instance=ExtResource("6_o6xl0")]
 transform = Transform3D(-0.63916266, 0, -0.76907164, 0, 1, 0, 0.76907164, 0, -0.63916266, -13.056808, -2.5638976, 0)
 speed = 5
 nav_group_name = "nav_group_1"
 
-[node name="npc3" parent="." unique_id=765834564 instance=ExtResource("6_o6xl0")]
+[node name="npc3" parent="." unique_id=765834564 groups=["interactable"] instance=ExtResource("6_o6xl0")]
 transform = Transform3D(-0.9353352, 0, 0.35376275, 0, 1, 0, -0.35376275, 0, -0.9353352, -9.591292, -2.5638976, -7.5988407)
 speed = 5
 nav_group_name = "nav_group_1"
 
-[node name="npc4" parent="." unique_id=1184566875 instance=ExtResource("6_o6xl0")]
+[node name="npc4" parent="." unique_id=1184566875 groups=["interactable"] instance=ExtResource("6_o6xl0")]
 transform = Transform3D(0.863735, 0, 0.5039462, 0, 1, 0, -0.5039462, 0, 0.863735, 12.760259, -2.5638976, 0)
 speed = 5
 nav_group_name = "nav_group_1"
 
-[node name="npc5" parent="." unique_id=379208571 instance=ExtResource("6_o6xl0")]
+[node name="npc5" parent="." unique_id=379208571 groups=["interactable"] instance=ExtResource("6_o6xl0")]
 transform = Transform3D(0.8558364, 0, -0.51724666, 0, 1, 0, 0.51724666, 0, 0.8558364, -5.3361063, -2.5638976, 6.660204)
 speed = 5
 nav_group_name = "nav_group_1"
 
-[node name="npc6" parent="." unique_id=1437014231 instance=ExtResource("6_o6xl0")]
+[node name="npc6" parent="." unique_id=1437014231 groups=["interactable"] instance=ExtResource("6_o6xl0")]
 transform = Transform3D(0.999576, 0, -0.029119164, 0, 1, 0, 0.029119164, 0, 0.999576, 3.9465466, -2.5638976, 6.3275394)
 speed = 5
 nav_group_name = "nav_group_1"
 
-[node name="npc7" parent="." unique_id=6609789 instance=ExtResource("6_o6xl0")]
+[node name="npc7" parent="." unique_id=6609789 groups=["interactable"] instance=ExtResource("6_o6xl0")]
 transform = Transform3D(-0.9758243, 0, -0.2185565, 0, 1, 0, 0.2185565, 0, -0.9758243, 5.6871934, -2.5638967, -7.914255)
 speed = 5
 nav_group_name = "nav_group_1"
 
-[node name="npc8" parent="." unique_id=558792318 instance=ExtResource("6_o6xl0")]
+[node name="npc8" parent="." unique_id=558792318 groups=["interactable"] instance=ExtResource("6_o6xl0")]
 transform = Transform3D(-0.83088654, 0, -0.5564419, 0, 1, 0, 0.5564419, 0, -0.83088654, -2.9630713, -2.5638976, -11.398418)
 speed = 5
 nav_group_name = "nav_group_1"
 
-[node name="npc9" parent="." unique_id=1602290215 instance=ExtResource("6_o6xl0")]
+[node name="npc9" parent="." unique_id=1602290215 groups=["interactable"] instance=ExtResource("6_o6xl0")]
 transform = Transform3D(-0.46567938, 0, -0.8849535, 0, 1, 0, 0.8849535, 0, -0.46567938, -7.656568, -2.5638957, 12.559067)
 speed = 5
 nav_group_name = "nav_group_1"

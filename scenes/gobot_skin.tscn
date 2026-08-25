@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cy36aygvs66pn"]
 
 [ext_resource type="PackedScene" uid="uid://kod0awm1ha4o" path="res://assets/gobot/model/gobot.glb" id="1_qg1mb"]
-[ext_resource type="Script" uid="uid://mlv3516tvl7r" path="res://assets/gobot/gobot_skin.gd" id="1_rwke8"]
+[ext_resource type="Script" uid="uid://mlv3516tvl7r" path="res://scripts/gobot_skin.gd" id="1_rwke8"]
 [ext_resource type="Texture2D" uid="uid://cfdf62ci74tew" path="res://assets/gobot/textures/closed_eyes.png" id="3_atmtp"]
 [ext_resource type="Texture2D" uid="uid://dq675fmt1rg8c" path="res://assets/gobot/textures/open_eye.png" id="3_aysq5"]
 [ext_resource type="AnimationLibrary" uid="uid://k45w5evgjbtp" path="res://assets/gobot/model/custom/custom_lib.res" id="6_vjupt"]
@@ -2097,7 +2097,7 @@ close_eye = ExtResource("3_atmtp")
 
 [node name="gobot" parent="." unique_id=747662793 instance=ExtResource("1_qg1mb")]
 
-[node name="Skeleton3D" parent="gobot/Armature" parent_id_path=PackedInt32Array(747662793, 37060917) index="0" unique_id=1792003774]
+[node name="Skeleton3D" parent="gobot/Armature" parent_id_path=PackedInt32Array(747662793, 1148053212) index="0" unique_id=1126377699]
 bones/0/position = Vector3(0.125361, 0.0989139, 0.0728901)
 bones/0/rotation = Quaternion(0.77254915, 0.10769103, -0.13622104, 0.61074907)
 bones/1/position = Vector3(-0.109875, 0.0989111, -0.0510765)
@@ -2128,12 +2128,12 @@ bones/23/rotation = Quaternion(-0.5023331, -1.5003405e-05, 2.8491406e-05, 0.8646
 bones/24/position = Vector3(0, 0.189977, 0)
 bones/24/rotation = Quaternion(-0.06975651, 4.5896506e-08, 3.0345004e-09, 0.99756414)
 
-[node name="Gobot" parent="gobot/Armature/Skeleton3D" index="0" unique_id=1596305363]
+[node name="Gobot" parent="gobot/Armature/Skeleton3D" index="0" unique_id=1994814007]
 material_overlay = SubResource("StandardMaterial3D_t4001")
 surface_material_override/1 = SubResource("StandardMaterial3D_dqpdt")
 surface_material_override/2 = SubResource("StandardMaterial3D_wi2vo")
 
-[node name="AnimationPlayer" parent="gobot" index="1" unique_id=33478182]
+[node name="AnimationPlayer" parent="gobot" index="1" unique_id=1456363513]
 libraries/ = SubResource("AnimationLibrary_03he3")
 libraries/custom_lib = ExtResource("6_vjupt")
 

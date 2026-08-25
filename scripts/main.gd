@@ -21,6 +21,9 @@ func _input(event: InputEvent) -> void:
 	if !first_input_captured:
 		first_input_captured = true
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	
+	if event.is_action_released("ui_cancel"):
+		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 
 func increment_time():
 	current_time += 10
