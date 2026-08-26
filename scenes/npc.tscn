@@ -43,5 +43,6 @@ script = ExtResource("4_7n8xq")
 [node name="Label3D" type="Label3D" parent="." unique_id=1876820746]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.330258, 0)
 pixel_size = 0.008
+billboard = 1
 text = "<INSERT_NAME_HERE>"
 font_size = 48
