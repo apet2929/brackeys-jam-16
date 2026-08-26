@@ -5,10 +5,22 @@
 [ext_resource type="PackedScene" uid="uid://dxbcoagxb86wv" path="res://scenes/player.tscn" id="3_jyhfs"]
 [ext_resource type="Texture2D" uid="uid://bfunimk1twiyy" path="res://assets/sprites/watch_face.jpg" id="3_o6xl0"]
 [ext_resource type="PackedScene" uid="uid://cwj6otb0ncbxh" path="res://scenes/box.tscn" id="4_jyhfs"]
+[ext_resource type="Texture2D" uid="uid://xhuyp5wpyacp" path="res://assets/sprites/footprint.jpg" id="5_choun"]
 [ext_resource type="PackedScene" uid="uid://b50ifj6jw7wrf" path="res://scenes/test_environment.tscn" id="5_tefeu"]
 [ext_resource type="PackedScene" uid="uid://y7h0egftoyem" path="res://scenes/gun.tscn" id="6_85g3d"]
 [ext_resource type="PackedScene" uid="uid://bovaiyxxqciui" path="res://scenes/npc.tscn" id="6_o6xl0"]
 [ext_resource type="Compositor" uid="uid://cd3pypt5f1gmv" path="res://assets/main_compositor.tres" id="6_tipki"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_knl0n"]
+gravity = Vector3(0, 0, 0)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c5jw8"]
+albedo_texture = ExtResource("5_choun")
+
+[sub_resource type="QuadMesh" id="QuadMesh_7rxam"]
+material = SubResource("StandardMaterial3D_c5jw8")
+size = Vector2(0.25, 0.5)
+orientation = 1
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_tipki"]
 sky_top_color = Color(0.20399365, 0.42910215, 0.82656664, 1)
@@ -68,6 +80,21 @@ texture_progress = ExtResource("3_o6xl0")
 [node name="Player" parent="." unique_id=1432795309 instance=ExtResource("3_jyhfs")]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1561297, -1.8304473, 16.073414)
+
+[node name="LeftFootMarker" type="Marker3D" parent="Player" unique_id=2071499936]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -1)
+
+[node name="RightFootMarker" type="Marker3D" parent="Player" unique_id=272534273]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 1)
+
+[node name="GroundRay" type="RayCast3D" parent="Player" unique_id=780922073]
+target_position = Vector3(0, -3, 0)
+
+[node name="Footprints" type="GPUParticles3D" parent="Player" unique_id=1530950790]
+amount = 10
+lifetime = 2.5
+process_material = SubResource("ParticleProcessMaterial_knl0n")
+draw_pass_1 = SubResource("QuadMesh_7rxam")
 
 [node name="box" parent="." unique_id=884456906 groups=["interactable"] instance=ExtResource("4_jyhfs")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.7297361, 10.605847)

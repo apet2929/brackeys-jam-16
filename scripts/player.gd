@@ -14,6 +14,9 @@ var inventory_held_item = null
 var inventory_held_item_idx = -1
 var inventory: Array[PackedScene] = []
 
+var left_foot = true
+var last_footstep = 0.0
+
 func _ready() -> void:
 	add_to_inventory(load("res://scenes/gun.tscn"))
 	add_to_inventory(load("res://scenes/gun2.tscn"))
@@ -56,6 +59,11 @@ func _physics_process(delta: float) -> void:
 	if direction:
 		velocity.x = direction.x * SPEED
 		velocity.z = direction.z * SPEED
+		
+		last_footstep += velocity.length() * delta
+		if last_footstep >= 100.0:
+			last_footstep = 0.0
+			make_footprint()
 	else: 
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		velocity.z = move_toward(velocity.z, 0, SPEED)
@@ -92,6 +100,22 @@ func _push_away_rigid_bodies():
 			var push_force = mass_ratio * PUSH_FORCE
 			col.apply_impulse(push_dir * velocity_diff_in_push_dir * push_force, obj.get_position() - col.global_position)
 			print("Collider: %s, push_dir: %s" % [col, push_dir])
+
+func make_footprint():
+	var foot_marker: Marker3D #current foot to print
+	foot_marker = $LeftFoot if left_foot else $RightFoot
+	left_foot = !left_foot
+	
+	var foot_location = Transform3D()
+	foot_location.origin = foot_marker.global_position
+	
+	$Footprints.emit_particle(
+		transform,
+		Vector3.ZERO,
+		Color.WHITE,
+		Color.WHITE,
+		0
+	)
 
 func _process(delta: float) -> void: 
 	if Input.is_action_pressed("crouch"):
