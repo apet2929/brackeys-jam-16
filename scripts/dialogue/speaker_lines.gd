@@ -10,9 +10,12 @@ var response_options: Array[Response] = [] # optional, selectable responses for 
 class Response:
 	var response_text: String
 	var next_lines: SpeakerLines # SpeakerLines to display when this response is selected
-	func _init(text: String, next_lines: SpeakerLines):
+	var ending: String = "" # optional, set to mark this response as heading to a specific ending of the cutscene
+	
+	func _init(text: String, next_lines: SpeakerLines, ending: String = ""):
 		self.response_text = text
 		self.next_lines = next_lines
+		self.ending = ending
 	
 
 func _init(speaker: String, lines: Array[String], dialogue_scene:PackedScene=null):
