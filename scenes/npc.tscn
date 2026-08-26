@@ -15,6 +15,7 @@ height = 1.6668701
 
 [node name="npc" type="CharacterBody3D" unique_id=2075161850]
 script = ExtResource("1_abqhh")
+texture = ExtResource("3_7n8xq")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1520646975]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.665612, 0)
@@ -38,3 +39,9 @@ billboard = 1
 shaded = true
 texture = ExtResource("3_7n8xq")
 script = ExtResource("4_7n8xq")
+
+[node name="Label3D" type="Label3D" parent="." unique_id=1876820746]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.330258, 0)
+pixel_size = 0.008
+text = "<INSERT_NAME_HERE>"
+font_size = 48

@@ -2,7 +2,6 @@ class_name ExampleCutscene
 extends Cutscene
 
 func _init() -> void:
-	var player_dialogue_scene = load("res://scenes/player_dialogue_scene.tscn")
 	self.dialogue_root = SpeakerLines.new("Xander", 
 		[
 			"They may or may not be in my walls",
@@ -23,5 +22,5 @@ func _init() -> void:
 			"Bullshit, I know who you are.",
 			"Don't think you can fool me"
 		],
-		player_dialogue_scene
+		self.player_dialogue_scene
 	)

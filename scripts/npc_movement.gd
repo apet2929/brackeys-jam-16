@@ -2,11 +2,18 @@ extends CharacterBody3D
 
 @export var acceleration = 10
 @export var speed = 2
+@export var min_wait_time_per_stop = 3.0
+@export var max_wait_time_per_stop = 10.0
+@export var npc_name: String
+@export var texture: Texture
 @export var nav_group_name: String
+@export var cutscene_controller: CutsceneController
 
 @onready var nav_agent = $NavigationAgent3D
 @onready var player = %Player
 @onready var skin = $Sprite3D
+@onready var name_label = $Label3D
+@onready var sprite = $Sprite3D
 
 var colliding_player = null
 # State list: 
@@ -20,6 +27,8 @@ var positions: Array
 var current_position: Marker3D
 
 func _ready():
+	name_label.text = npc_name
+	sprite.texture = texture
 	skin.set_move_speed(speed)
 	nav_agent.avoidance_enabled = true
 	nav_agent.velocity_computed.connect(_on_velocity_computed)
@@ -61,7 +70,11 @@ func _physics_process(delta: float) -> void:
 			state = 2
 			
 	elif state == 2:
+		nav_agent.velocity = Vector3.ZERO
 		skin.victory_sign()
+		
+func _process(delta: float) -> void:
+	name_label.rotation.y += deg_to_rad(90) * delta
 
 func _on_velocity_computed(safe_velocity: Vector3):
 	velocity = safe_velocity
@@ -76,17 +89,19 @@ func _get_next_position():
 	positions.push_back(current_position)
 	state = 0
 	
-	var time_to_wait = randf_range(3.0, 10.0)
+	var time_to_wait = randf_range(min_wait_time_per_stop, max_wait_time_per_stop)
 	await get_tree().create_timer(time_to_wait).timeout
 	if state == 0: 
 		state = 1
 
 func interact() -> void:
-	var cutscene = ExampleCutscene.new()
-	self.state = 2
-	cutscene.display()
-	Globals.ui.dialogue_end.connect(on_cutscene_end)
+	# No cutscene_controller = not interactable
+	if (cutscene_controller != null):
+		self.state = 2
+		cutscene_controller.display_next()
+		Globals.ui.dialogue_end.connect(on_cutscene_end)
 	
 func on_cutscene_end():
 	self.state = 0
+	Globals.ui.dialogue_end.disconnect(on_cutscene_end)
 	

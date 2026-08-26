@@ -27,6 +27,7 @@ func start_dialogue(dialogue_lines: SpeakerLines):
 func on_response_selected(response: SpeakerLines.Response):
 	selecting_response = false
 	set_dialogue(response.next_lines)
+	print("emitting")
 	dialogue_response_selected.emit(response)
 
 func set_dialogue(dialogue_lines: SpeakerLines):
