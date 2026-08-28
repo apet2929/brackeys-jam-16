@@ -1,0 +1,11 @@
+[gd_resource type="Theme" format=3 uid="uid://blpuosia6o0qd"]
+
+[ext_resource type="FontFile" uid="uid://bk12q5supmarh" path="res://assets/fonts/sunset_palm_script/Sunset Palm - Script Trial.otf" id="1_micps"]
+
+[resource]
+default_font = ExtResource("1_micps")
+default_font_size = 60
+TextEdit/colors/background_color = Color(0.9712916, 0.9204386, 0.70389, 1)
+TextEdit/colors/font_color = Color(0.47058824, 0.47058824, 0.47058824, 1)
+TextEdit/colors/font_outline_color = Color(0, 0, 0, 0)
+TextEdit/colors/font_placeholder_color = Color(0.7392882, 0.7392882, 0.7392882, 1)

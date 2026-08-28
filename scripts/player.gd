@@ -14,10 +14,16 @@ var inventory_held_item = null
 var inventory_held_item_idx = -1
 var inventory: Array[PackedScene] = []
 
+@onready var notepad = $Notepad
+var notepad_theme = Theme.new()
+
 var left_foot = true
 var last_footstep = 0.0
 
 func _ready() -> void:
+	notepad.visible = false
+	notepad.tab_input_mode = false
+	notepad.theme = load("res://assets/notepad.tres")
 	add_to_inventory(load("res://scenes/gun.tscn"))
 	add_to_inventory(load("res://scenes/gun2.tscn"))
 	Globals.ui.dialogue_start.connect(
@@ -29,6 +35,9 @@ func _ready() -> void:
 			self.process_mode = Node.PROCESS_MODE_INHERIT))
 
 func _physics_process(delta: float) -> void:
+	if notepad.visible:
+		return
+
 	if currently_held:
 		currently_held.gravity_scale = 0
 		currently_held.global_position = currently_held.global_position.lerp(%hand.global_position, delta * 50.0)
@@ -72,6 +81,15 @@ func _physics_process(delta: float) -> void:
 	if !Globals.ui.in_dialogue(): # one last physics process seems to go through after pausing/unpausing node, causing error in Godot physics processing  
 		move_and_slide()
 	
+func toggle_notepad():
+	if not notepad.visible:
+		notepad.visible = true
+		notepad.grab_focus.call_deferred()
+		print("notepad opened!")
+	else:
+		notepad.visible = false
+		print("notepad closed!")
+
 func pickup_item(target):
 	if inventory_held_item != null:
 		unequip_item_from_inventory()
@@ -117,7 +135,11 @@ func make_footprint():
 		0
 	)
 
-func _process(delta: float) -> void: 
+func _process(delta: float) -> void: 		
+	if Input.is_action_just_pressed("open notepad"):
+		toggle_notepad()
+		return
+		
 	if Input.is_action_pressed("crouch"):
 		_crouch()
 	else:
@@ -126,7 +148,7 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("use"):
 		if currently_held and currently_held.has_method("use"):
 			currently_held.use()
-			
+
 	if Input.is_action_just_released("ui_cancel"):
 		if inventory_held_item_idx != -1:
 			inventory_held_item_idx = -1
