@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://dxbcoagxb86wv" path="res://scenes/player.tscn" id="3_jyhfs"]
 [ext_resource type="Texture2D" uid="uid://bfunimk1twiyy" path="res://assets/sprites/watch_face.jpg" id="3_o6xl0"]
 [ext_resource type="Theme" uid="uid://blgtyb1vfutyc" path="res://assets/dialogue_theme.tres" id="4_0ld40"]
-[ext_resource type="Texture2D" uid="uid://xhuyp5wpyacp" path="res://assets/sprites/footprint.jpg" id="5_choun"]
 [ext_resource type="PackedScene" uid="uid://bovaiyxxqciui" path="res://scenes/npc.tscn" id="6_o6xl0"]
 [ext_resource type="Script" uid="uid://budsw7lh5w5n" path="res://scripts/dialogue/controllers/cc_paul.gd" id="10_choun"]
 [ext_resource type="PackedScene" uid="uid://hw40gufuto5x" path="res://scenes/dinner_party_room.tscn" id="11_0ld40"]
@@ -22,8 +21,11 @@
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_knl0n"]
 gravity = Vector3(0, 0, 0)
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_muem4"]
+load_path = "res://.godot/imported/footprint.jpg-e1f991ff8831e19148a9d7bdc0c542bf.s3tc.ctex"
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c5jw8"]
-albedo_texture = ExtResource("5_choun")
+albedo_texture = SubResource("CompressedTexture2D_muem4")
 
 [sub_resource type="QuadMesh" id="QuadMesh_7rxam"]
 material = SubResource("StandardMaterial3D_c5jw8")
@@ -302,6 +304,22 @@ amount = 10
 lifetime = 2.5
 process_material = SubResource("ParticleProcessMaterial_knl0n")
 draw_pass_1 = SubResource("QuadMesh_7rxam")
+
+[node name="Notepad" type="TextEdit" parent="Player" unique_id=1908143720]
+anchors_preset = -1
+anchor_left = 0.293
+anchor_top = 0.091000006
+anchor_right = 0.68500006
+anchor_bottom = 0.87700003
+offset_left = -101.53601
+offset_top = 6.0319977
+offset_right = 148.64807
+offset_bottom = -0.16003418
+placeholder_text = "This is your notepad
+Type to enter notes about your suspects"
+backspace_deletes_composite_character_enabled = true
+wrap_mode = 1
+caret_blink = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=461801802]
 environment = SubResource("Environment_85g3d")
