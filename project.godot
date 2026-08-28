@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="BrackeysJam16"
-run/main_scene="uid://c60ppto2jqd1r"
+run/main_scene="uid://bx4gqsputi8b1"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://icon.svg"
 
@@ -21,6 +21,8 @@ Globals="*uid://cpfbgdaopjjfk"
 
 [display]
 
+window/size/viewport_width=1920
+window/size/viewport_height=1080
 window/stretch/mode="viewport"
 
 [filesystem]

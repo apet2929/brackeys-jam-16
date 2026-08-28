@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://c60ppto2jqd1r"]
 
 [ext_resource type="Script" uid="uid://cobv4x4ftqfaq" path="res://scripts/main.gd" id="1_o5qli"]
+[ext_resource type="PackedScene" uid="uid://gk86ip5b2h4t" path="res://scenes/fade_transition.tscn" id="2_eb6dy"]
 [ext_resource type="Script" uid="uid://dt0vy6u7msawf" path="res://scripts/ui.gd" id="2_tbgi4"]
 [ext_resource type="PackedScene" uid="uid://dxbcoagxb86wv" path="res://scenes/player.tscn" id="3_jyhfs"]
 [ext_resource type="Texture2D" uid="uid://bfunimk1twiyy" path="res://assets/sprites/watch_face.jpg" id="3_o6xl0"]
@@ -11,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://bovaiyxxqciui" path="res://scenes/npc.tscn" id="6_o6xl0"]
 [ext_resource type="Compositor" uid="uid://cd3pypt5f1gmv" path="res://assets/main_compositor.tres" id="6_tipki"]
 [ext_resource type="Script" uid="uid://budsw7lh5w5n" path="res://scripts/dialogue/controllers/cc_paul.gd" id="10_choun"]
+[ext_resource type="PackedScene" uid="uid://bu5nag65jgmve" path="res://scenes/candle.tscn" id="12_trceg"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_knl0n"]
 gravity = Vector3(0, 0, 0)
@@ -53,6 +55,7 @@ metadata/_custom_type_script = "uid://budsw7lh5w5n"
 script = ExtResource("1_o5qli")
 
 [node name="UI" type="Control" parent="." unique_id=1313477241]
+unique_name_in_owner = true
 process_mode = 3
 layout_mode = 3
 anchors_preset = 15
@@ -181,3 +184,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.307862, -2.0592697, -14.4
 
 [node name="Marker3D4" type="Marker3D" parent="navigation_markers" unique_id=369484851 groups=["nav_group_1"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.337206, -1.9884126, -15.531053)
+
+[node name="candle" parent="." unique_id=1835713593 instance=ExtResource("12_trceg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5782671, 0, 1.3620542)
+
+[node name="fade_transition" parent="." unique_id=15383382 instance=ExtResource("2_eb6dy")]

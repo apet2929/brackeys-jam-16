@@ -12,14 +12,20 @@ func _init():
 	
 # setup that runs after this node is inserted into the tree
 func _ready():
-	main = get_tree().root.find_child("Main", true, false)
-	ui = get_tree().root.find_child("UI", true, false)
-	self.call_deferred("_after_ready")
-	
-	print(main)
-	print(ui)
-	pass
+	initialize()
 	
 # setup that runs after all nodes have been inserted into the tree
 func _after_ready():
 	pass
+
+func initialize():
+	var root_node = get_tree().current_scene
+	if root_node is Main:
+		main = get_tree().current_scene
+		ui = get_tree().root.find_child("UI", true, false)
+		self.call_deferred("_after_ready")
+		
+		print(main)
+		print(ui)
+	print('initialized')
+	print(root_node)

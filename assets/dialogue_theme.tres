@@ -1,10 +1,13 @@
 [gd_resource type="Theme" format=3 uid="uid://blgtyb1vfutyc"]
 
 [ext_resource type="FontFile" uid="uid://dqtjp48hbyejs" path="res://assets/fonts/Carpathe/CarpatheBold.ttf" id="1_ddhsp"]
+[ext_resource type="FontFile" uid="uid://dtmadfriyh1m1" path="res://assets/fonts/trade-gothic-bold-condensed-no-20-opentype_ufonts.com.otf" id="2_ddhsp"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7nxc4"]
 
 [resource]
+default_font = ExtResource("2_ddhsp")
+default_font_size = 16
 LineDisplay/base_type = &"RichTextLabel"
 NameDisplay/base_type = &"RichTextLabel"
 Response/base_type = &"PanelContainer"

@@ -10,7 +10,7 @@ var current_dialogue_display: DialogueDisplay = null
 var current_line = 0
 var selecting_response = false
 
-func _ready() -> void:
+func globals_ready() -> void:
 	$Timer.max_value = Globals.main.MAX_TIME
 	Globals.main.current_time_updated.connect(update_timer)
 

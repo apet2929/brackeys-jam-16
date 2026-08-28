@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://bu5nag65jgmve"]
+
+[ext_resource type="PackedScene" uid="uid://b1nk7u4phc3sk" path="res://assets/models/candle/candle.glb" id="1_ctofe"]
+
+[node name="candle" unique_id=1835713593 instance=ExtResource("1_ctofe")]
+
+[node name="Point" parent="." index="5" unique_id=1951362631]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0.0011383878, 0.23383181, -0.0009108132)
+light_energy = 0.1

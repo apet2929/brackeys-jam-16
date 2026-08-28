@@ -1,0 +1,83 @@
+[gd_scene format=3 uid="uid://bx4gqsputi8b1"]
+
+[ext_resource type="Script" uid="uid://d0e4yi64ykrpu" path="res://scripts/main_menu.gd" id="1_8ln24"]
+[ext_resource type="Theme" uid="uid://blgtyb1vfutyc" path="res://assets/dialogue_theme.tres" id="1_bqqt6"]
+[ext_resource type="FontFile" uid="uid://dtmadfriyh1m1" path="res://assets/fonts/trade-gothic-bold-condensed-no-20-opentype_ufonts.com.otf" id="2_wu84c"]
+[ext_resource type="VideoStream" uid="uid://cr54hg73t2m47" path="res://assets/other/main_menu_candle.ogv" id="3_8ln24"]
+[ext_resource type="PackedScene" uid="uid://gk86ip5b2h4t" path="res://scenes/fade_transition.tscn" id="5_rtw2f"]
+
+[node name="MainMenu" type="Control" unique_id=515518437]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_8ln24")
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="." unique_id=278644143]
+clip_contents = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -960.0
+offset_top = -540.0
+offset_right = 960.0
+offset_bottom = 540.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+stream = ExtResource("3_8ln24")
+autoplay = true
+loop = true
+
+[node name="Quit" type="Button" parent="." unique_id=1018464484]
+layout_mode = 0
+offset_left = 104.0
+offset_top = 393.0
+offset_right = 304.0
+offset_bottom = 483.0
+theme_override_fonts/font = ExtResource("2_wu84c")
+theme_override_font_sizes/font_size = 64
+text = "QUIT"
+flat = true
+
+[node name="Start" type="Button" parent="." unique_id=1671465123]
+layout_mode = 0
+offset_left = 116.0
+offset_top = 274.0
+offset_right = 316.0
+offset_bottom = 364.0
+theme_override_fonts/font = ExtResource("2_wu84c")
+theme_override_font_sizes/font_size = 64
+text = "START
+"
+flat = true
+
+[node name="Label" type="Label" parent="." unique_id=1025367086]
+layout_mode = 0
+offset_left = 122.0
+offset_top = 119.0
+offset_right = 661.0
+offset_bottom = 206.0
+theme = ExtResource("1_bqqt6")
+theme_override_font_sizes/font_size = 96
+text = "COULROPHOBIA"
+
+[node name="Line2D" type="Line2D" parent="." unique_id=883877165]
+points = PackedVector2Array(81, 226, 117, 78, 671, 78, 695, 226)
+closed = true
+
+[node name="fade_transition" parent="." unique_id=15383382 instance=ExtResource("5_rtw2f")]
+visible = false
+layout_mode = 1
+
+[node name="Timer" type="Timer" parent="fade_transition" unique_id=185619829]
+
+[connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="Start" to="." method="_on_start_pressed"]
+[connection signal="timeout" from="fade_transition/Timer" to="." method="_on_timer_timeout"]

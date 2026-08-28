@@ -20,11 +20,11 @@ var last_footstep = 0.0
 func _ready() -> void:
 	add_to_inventory(load("res://scenes/gun.tscn"))
 	add_to_inventory(load("res://scenes/gun2.tscn"))
-	Globals.ui.dialogue_start.connect(
+	%UI.dialogue_start.connect(
 		(func (_arg):
 			self.process_mode = Node.PROCESS_MODE_DISABLED))
 	
-	Globals.ui.dialogue_end.connect(
+	%UI.dialogue_end.connect(
 		(func ():
 			self.process_mode = Node.PROCESS_MODE_INHERIT))
 
@@ -69,7 +69,7 @@ func _physics_process(delta: float) -> void:
 		velocity.z = move_toward(velocity.z, 0, SPEED)
 	
 	_push_away_rigid_bodies()
-	if !Globals.ui.in_dialogue(): # one last physics process seems to go through after pausing/unpausing node, causing error in Godot physics processing  
+	if !%UI.in_dialogue(): # one last physics process seems to go through after pausing/unpausing node, causing error in Godot physics processing  
 		move_and_slide()
 	
 func pickup_item(target):

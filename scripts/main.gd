@@ -12,8 +12,12 @@ const MAX_TIME = 100
 var first_input_captured = false 
 
 func _ready() -> void:
+
+	Globals.initialize()
+	$UI.globals_ready()
 	$UI.dialogue_end.connect(increment_time)
 	current_time_updated.emit(current_time)
+	$fade_transition/AnimationPlayer.play("fade_out")
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.pressed:
