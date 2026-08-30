@@ -37,7 +37,6 @@ func _ready():
 	_get_next_position()
 	
 	# idle for 3 seconds before starting to move
-	await get_tree().create_timer(3.0).timeout
 	state = 1
 
 func _physics_process(delta: float) -> void:
