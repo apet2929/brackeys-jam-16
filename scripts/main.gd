@@ -12,6 +12,9 @@ var game_over = false
 # In web builds, we can't capture mouse input until atleast 1 input event is registered
 var first_input_captured = false 
 
+@onready var music_track: AudioStreamPlayer = $music_track
+@onready var ambience: AudioStreamPlayer = $ambience
+
 func _ready() -> void:
 
 	Globals.initialize()
@@ -19,6 +22,15 @@ func _ready() -> void:
 	$UI.dialogue_end.connect(increment_time)
 	current_time_updated.emit(current_time)
 	%fade_transition/AnimationPlayer.play("fade_out")
+	
+	# fade the music/ambience in
+	music_track.volume_db = -20.0
+	ambience.volume_db = -20.0
+	music_track.play()
+	var music_fade := create_tween()
+	music_fade.tween_property(music_track, "volume_db", 0.0, 1.0)
+	var ambience_fade := create_tween()
+	ambience_fade.tween_property(ambience, "volume_db", -1.793, 1.0)
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.pressed:
