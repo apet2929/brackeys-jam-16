@@ -18,6 +18,9 @@ func _init() -> void:
 		SpeakerLines.Response.new("Sorry if I'm bothering you. I'm Michael. I own the city's steel plant.", line_2),
 		SpeakerLines.Response.new("Excuse me, are you Melissa Machiavelli? I'm a campaign manager for some of the state's representatives and I'd be interested in speaking with you.", line_3)
 	]
+	if Globals.accusable():
+		self.dialogue_root.response_options.append(SpeakerLines.Response.new("I know you're the leaker Melissa, you're coming with me.", SpeakerLines.new("Melissa", ["Leaker? What the hell are you talking about? Get away from me!"]), "accused"))
+	
 	
 	line_1.next_line = SpeakerLines.new("You", ["Damn."], self.player_dialogue_scene)
 	

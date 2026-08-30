@@ -18,8 +18,10 @@ func _init() -> void:
 		SpeakerLines.Response.new("What's up Gregory. Did you see anything cool lately? Maybe government agents?", line_2),
 		SpeakerLines.Response.new("Yeah nevermind I'm not dealing with this", line_3)
 	] as Array[SpeakerLines.Response]
+	if Globals.accusable():
+		self.dialogue_root.response_options.append(SpeakerLines.Response.new("I know you're the leaker Gregory, you're coming with me.", SpeakerLines.new("Gregory", ["HAHAHAHAHHAA!!! IDIOT!!!"]), "accused"))
 	
 	line_2.response_options = [
-		SpeakerLines.Response.new("That's rough man, I'm sorry. I really am.", null, "aliens_revealed")
+		SpeakerLines.Response.new("That's rough man, I'm sorry. I really am.", SpeakerLines.new("Gregory", ["wine time"]), "aliens_revealed")
 	] as Array[SpeakerLines.Response]
 	

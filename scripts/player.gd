@@ -24,17 +24,18 @@ func _ready() -> void:
 	%UI.dialogue_start.connect(
 		(func (_arg):
 			self.in_dialogue = true
+			self.hide_ui()
 			%head.in_dialogue = true))
 	
 	%UI.dialogue_end.connect(
 		(func ():
 			self.in_dialogue = false
+			self.unhide_ui()
 			%head.in_dialogue = false))
 
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity += get_gravity()*delta
-		
 	if not in_dialogue:
 		if currently_held:
 			currently_held.gravity_scale = 0
@@ -183,3 +184,8 @@ func _uncrouch():
 		t.tween_property($head, "position:y", 1.6, 0.1)
 		crouched = false
 	
+func hide_ui():
+	%CanvasLayer.visible = false
+	
+func unhide_ui():
+	%CanvasLayer.visible = true

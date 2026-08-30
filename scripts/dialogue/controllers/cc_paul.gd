@@ -9,6 +9,8 @@ func display_next():
 	await super.display_next()
 	
 	if self.current_cutscene.last_response != null:
+		if self.current_cutscene.last_response.ending == "accused":
+			Globals.main.accuse("Paul")
 		if self.current_cutscene.last_response.ending == "origin_revealed":
 			Globals.knows_origin = true
 		if self.current_cutscene.index == 0:

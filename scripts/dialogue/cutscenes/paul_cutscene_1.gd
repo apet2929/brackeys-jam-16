@@ -18,7 +18,9 @@ func update() -> void:
 		self.dialogue_root.response_options.append(SpeakerLines.Response.new("Have you heard anything about a lethal version of laughing gas? I figure your media connections might still have something.", effects_line))
 	if Globals.knows_aliens:
 		self.dialogue_root.response_options.append(SpeakerLines.Response.new("I've heard there was some sort of an alien spacecraft that landed out West. Any veracity to that claim or is it just hillbilly tales?", aliens_line))
-
+	if Globals.accusable():
+		self.dialogue_root.response_options.append(SpeakerLines.Response.new("I know you're the leaker Paul, you're coming with me.", SpeakerLines.new("Paul", ["Fine. Take me away. It won't save you from the truth that will be revealed"]), "accused"))
+	
 	effects_line.response_options = [
 		SpeakerLines.Response.new("Thanks for the info man, and good luck with the story.", SpeakerLines.new("Paul", ["Anytime. Just make sure to pick up our paper come Monday."]), "origin_revealed")
 	] as Array[SpeakerLines.Response]

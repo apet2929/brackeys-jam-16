@@ -15,6 +15,8 @@ func _init() -> void:
 		SpeakerLines.Response.new("Nice to meet you Shirley. What brings you to this party?", line_1),
 		SpeakerLines.Response.new("The paper huh. Any interesting stories lately?", line_2),
 	]
+	if Globals.accusable():
+		self.dialogue_root.response_options.append(SpeakerLines.Response.new("I know you're the leaker Shirley, you're coming with me.", SpeakerLines.new("Shirley", ["Uh what? I haven't even covered any stories yet, how could I leak anything?"]), "accused"))
 	
 	var worthless = SpeakerLines.new("Shirley", ["You probably could've guessed, it's just journalism. I'm hoping to get some good use out of it, but these people don't have much information.", 
 												 "The only people who haven't brushed me off are Gregory and you, but I'm preeeetty sure Gregory is crazy."])

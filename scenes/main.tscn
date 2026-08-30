@@ -72,6 +72,9 @@ metadata/_custom_type_script = "uid://bgn855cwcoalp"
 [node name="Main" type="Node3D" unique_id=733717212]
 script = ExtResource("1_o5qli")
 
+[node name="fade_transition" parent="." unique_id=15383382 instance=ExtResource("2_eb6dy")]
+visible = false
+
 [node name="UI" type="Control" parent="." unique_id=1313477241]
 unique_name_in_owner = true
 process_mode = 3
@@ -132,7 +135,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("4_0ld40")
 theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/normal_font_size = 24
+theme_override_font_sizes/normal_font_size = 70
 text = "Description:
 Compound 87-C is an odorless, pale-yellow dust with particle size averaging 0.2 microns. The compound is known to cause numerous physiological, neurological, and psychological effects when ingested. Animal studies suggest that approximately ▮ grams would be fatal to the average adult human.
 
@@ -160,6 +163,58 @@ There is currently no known method of synthesizing compound 87-C. All known samp
 Ongoing incident report
 On August 23, 1953, a copy of indecent report 87-C-NC1 was reported missing from a secure compartmentalized information facility in DC. Several other documents related to 87-C have since been reported missing from various nearby facilities. Around the same time, a suspicious vehicle was noticed leaving the site. The plate on the vehicle was registered to a “Dr Philip Blanc”, a name not found in any other government database.  The vehicle was later spotted in the parking lot of the ▮▮▮▮▮▮▮▮▮ ▮▮▮▮▮▮▮▮▮ hotel, during an ongoing campaign banquet hosted by Senator Perry Terrell. An investigation unit was dispatched to recover the lost documents and prevent further unauthorized disclosure.
 "
+
+[node name="EndScreen" type="ColorRect" parent="UI" unique_id=993794003]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.74509805, 0.74509805, 0.74509805, 1)
+
+[node name="EndTitle" type="Label" parent="UI/EndScreen" unique_id=263905110]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -569.0
+offset_top = 99.0
+offset_right = 574.0
+offset_bottom = -40.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("4_0ld40")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Congratulations"
+horizontal_alignment = 1
+
+[node name="EndText" type="Label" parent="UI/EndScreen" unique_id=1071001341]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -553.0
+offset_top = 275.0
+offset_right = 556.0
+offset_bottom = -72.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("4_0ld40")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 70
+text = "You win you win you win you win you "
+horizontal_alignment = 1
+autowrap_mode = 2
 
 [node name="Player" parent="." unique_id=1432795309 instance=ExtResource("3_jyhfs")]
 unique_name_in_owner = true
@@ -203,7 +258,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.9075642, -2.787363, 0.5215
 
 [node name="Paul" parent="." unique_id=2075161850 groups=["interactable"] instance=ExtResource("6_o6xl0")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -3.7587123, -0.2755193, 0)
-speed = 5
 npc_name = "Paul"
 texture = ExtResource("11_jbj1t")
 nav_group_name = "nav_group_1"
@@ -211,7 +265,6 @@ cutscene_controller = SubResource("Resource_7n8xq")
 
 [node name="Shirley" parent="." unique_id=2069918465 groups=["interactable"] instance=ExtResource("6_o6xl0")]
 transform = Transform3D(-0.63916266, 0, -0.76907164, 0, 1, 0, 0.76907164, 0, -0.63916266, -13.056808, -2.5638976, 0)
-speed = 5
 npc_name = "Shirley"
 texture = ExtResource("12_jkv2x")
 nav_group_name = "nav_group_1"
@@ -219,7 +272,6 @@ cutscene_controller = SubResource("Resource_x4adw")
 
 [node name="Gregory" parent="." unique_id=765834564 groups=["interactable"] instance=ExtResource("6_o6xl0")]
 transform = Transform3D(-0.9353352, 0, 0.35376275, 0, 1, 0, -0.35376275, 0, -0.9353352, -9.591292, -2.5638976, -7.5988407)
-speed = 5
 npc_name = "Gregory"
 texture = ExtResource("11_jbj1t")
 nav_group_name = "nav_group_1"
@@ -227,7 +279,6 @@ cutscene_controller = SubResource("Resource_3rtn1")
 
 [node name="Melissa" parent="." unique_id=1184566875 groups=["interactable"] instance=ExtResource("6_o6xl0")]
 transform = Transform3D(0.863735, 0, 0.5039462, 0, 1, 0, -0.5039462, 0, 0.863735, 12.760259, -2.5638976, 0)
-speed = 5
 npc_name = "Melissa"
 texture = ExtResource("12_jkv2x")
 nav_group_name = "nav_group_1"
@@ -235,27 +286,27 @@ cutscene_controller = SubResource("Resource_muem4")
 
 [node name="npc5" parent="." unique_id=379208571 groups=["interactable"] instance=ExtResource("6_o6xl0")]
 transform = Transform3D(0.8558364, 0, -0.51724666, 0, 1, 0, 0.51724666, 0, 0.8558364, -5.3361063, -2.5638976, 6.660204)
-speed = 5
+texture = ExtResource("12_jkv2x")
 nav_group_name = "nav_group_1"
 
 [node name="npc6" parent="." unique_id=1437014231 groups=["interactable"] instance=ExtResource("6_o6xl0")]
 transform = Transform3D(0.999576, 0, -0.029119164, 0, 1, 0, 0.029119164, 0, 0.999576, 3.9465466, -2.5638976, 6.3275394)
-speed = 5
+texture = ExtResource("11_jbj1t")
 nav_group_name = "nav_group_1"
 
 [node name="npc7" parent="." unique_id=6609789 groups=["interactable"] instance=ExtResource("6_o6xl0")]
 transform = Transform3D(-0.9758243, 0, -0.2185565, 0, 1, 0, 0.2185565, 0, -0.9758243, 5.6871934, -2.5638967, -7.914255)
-speed = 5
+texture = ExtResource("11_jbj1t")
 nav_group_name = "nav_group_1"
 
 [node name="npc8" parent="." unique_id=558792318 groups=["interactable"] instance=ExtResource("6_o6xl0")]
 transform = Transform3D(-0.83088654, 0, -0.5564419, 0, 1, 0, 0.5564419, 0, -0.83088654, -2.9630713, -2.5638976, -11.398418)
-speed = 5
+texture = ExtResource("11_jbj1t")
 nav_group_name = "nav_group_1"
 
 [node name="npc9" parent="." unique_id=1602290215 groups=["interactable"] instance=ExtResource("6_o6xl0")]
 transform = Transform3D(-0.46567938, 0, -0.8849535, 0, 1, 0, 0.8849535, 0, -0.46567938, -7.656568, -2.5638957, 12.559067)
-speed = 5
+texture = ExtResource("11_jbj1t")
 nav_group_name = "nav_group_1"
 
 [node name="navigation_markers" type="Node3D" parent="." unique_id=1619862232]
@@ -273,6 +324,3 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.337206, -1.9884126, -15.53
 
 [node name="candle" parent="." unique_id=1835713593 instance=ExtResource("12_trceg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5782671, 0, 1.3620542)
-
-[node name="fade_transition" parent="." unique_id=15383382 instance=ExtResource("2_eb6dy")]
-visible = false

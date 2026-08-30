@@ -40,3 +40,6 @@ func initialize():
 		
 		print(main)
 		print(ui)
+
+func accusable() -> bool:
+	return knows_origin && knows_happy_effects && knows_aliens
