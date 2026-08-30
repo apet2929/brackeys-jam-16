@@ -44,14 +44,15 @@ func _input(event: InputEvent) -> void:
 
 # Update the UI to un-redact dossier info based on our 3 "knows" bools
 func update_dossier(knows_origin, knows_happy_effects, knows_aliens):
-	%Dossier.text = "Current progress:\n"
+	var dossier = "Current progress: [ol]"
 	if knows_origin:
-		%Dossier.text += "Originated in a lab in North Carolina\n"
+		dossier += "[*]Originated in a lab in North Carolina"
 	if knows_happy_effects:
-		%Dossier.text += "The substance causes subjects to become overly happy and eventually die\n"
+		dossier += "[*]The substance causes subjects to become overly happy and eventually die"
 	if knows_aliens:
-		%Dossier.text += "Substance came from an alien landing\n"
-
+		dossier += "[*]Substance came from an alien landing"
+	dossier += "[/ol]"
+	%Dossier.text = dossier
 func accuse(person: String) -> void:
 	%Player.hide_ui()
 	%EndScreen.visible = true
