@@ -16,61 +16,65 @@ var inventory: Array[PackedScene] = []
 
 var left_foot = true
 var last_footstep = 0.0
+var in_dialogue = false
 
 func _ready() -> void:
 	add_to_inventory(load("res://scenes/gun.tscn"))
 	add_to_inventory(load("res://scenes/gun2.tscn"))
 	%UI.dialogue_start.connect(
 		(func (_arg):
-			self.process_mode = Node.PROCESS_MODE_DISABLED))
+			self.in_dialogue = true
+			%head.in_dialogue = true))
 	
 	%UI.dialogue_end.connect(
 		(func ():
-			self.process_mode = Node.PROCESS_MODE_INHERIT))
+			self.in_dialogue = false
+			%head.in_dialogue = false))
 
 func _physics_process(delta: float) -> void:
-	if currently_held:
-		currently_held.gravity_scale = 0
-		currently_held.global_position = currently_held.global_position.lerp(%hand.global_position, delta * 50.0)
-		currently_held.global_rotation = Vector3(0, %hand.global_rotation.y, 0)
-		if Input.is_action_just_released("interact"):
-			toss_held_item()
-	
-	%interact_text.hide()
-	if %interact_ray.is_colliding():
-		var target = %interact_ray.get_collider()
-		if target && (target.is_in_group("interactable") || target.is_in_group("pickupable")):
-				%interact_text.show()
-				if Input.is_action_just_pressed("interact"):
-					if target.is_in_group("interactable"):
-						target.interact()
-					if target.is_in_group("pickupable"):
-						pickup_item(target)
-				
-	
 	if not is_on_floor():
 		velocity += get_gravity()*delta
 		
-	if Input.is_action_just_pressed("jump") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
-	
-	var input_dir := Input.get_vector("left", "right", "forward", "back")
-	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
-	if direction:
-		velocity.x = direction.x * SPEED
-		velocity.z = direction.z * SPEED
+	if not in_dialogue:
+		if currently_held:
+			currently_held.gravity_scale = 0
+			currently_held.global_position = currently_held.global_position.lerp(%hand.global_position, delta * 50.0)
+			currently_held.global_rotation = Vector3(0, %hand.global_rotation.y, 0)
+			if Input.is_action_just_released("interact"):
+				toss_held_item()
 		
-		last_footstep += velocity.length() * delta
-		if last_footstep >= 100.0:
-			last_footstep = 0.0
-			make_footprint()
-	else: 
-		velocity.x = move_toward(velocity.x, 0, SPEED)
-		velocity.z = move_toward(velocity.z, 0, SPEED)
-	
-	_push_away_rigid_bodies()
-	if !%UI.in_dialogue(): # one last physics process seems to go through after pausing/unpausing node, causing error in Godot physics processing  
-		move_and_slide()
+		%interact_text.hide()
+		if %interact_ray.is_colliding():
+			var target = %interact_ray.get_collider()
+			if target && (target.is_in_group("interactable") || target.is_in_group("pickupable")):
+					%interact_text.show()
+					if Input.is_action_just_pressed("interact"):
+						if target.is_in_group("interactable"):
+							target.interact()
+						if target.is_in_group("pickupable"):
+							pickup_item(target)
+					
+		
+			
+		if Input.is_action_just_pressed("jump") and is_on_floor():
+			velocity.y = JUMP_VELOCITY
+		
+		var input_dir := Input.get_vector("left", "right", "forward", "back")
+		var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+		if direction:
+			velocity.x = direction.x * SPEED
+			velocity.z = direction.z * SPEED
+			
+			last_footstep += velocity.length() * delta
+			if last_footstep >= 100.0:
+				last_footstep = 0.0
+				make_footprint()
+		else: 
+			velocity.x = move_toward(velocity.x, 0, SPEED)
+			velocity.z = move_toward(velocity.z, 0, SPEED)
+		
+		_push_away_rigid_bodies()
+	move_and_slide()
 	
 func pickup_item(target):
 	if inventory_held_item != null:
