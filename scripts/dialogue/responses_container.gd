@@ -39,12 +39,12 @@ func _input(event: InputEvent) -> void:
 	if len(responses) <= 0:
 		return
 	
-	if Input.is_action_just_released("ui_accept"):
+	if Input.is_action_just_pressed("interact"):
 		Globals.ui.on_response_selected(responses[selected_response_idx].response)
 		self.reset()
-	if Input.is_action_just_released("ui_up"):
+	if Input.is_action_just_pressed("forward"):
 		set_selected((selected_response_idx - 1) % len(responses))
-	if Input.is_action_just_released("ui_down"):
+	if Input.is_action_just_pressed("back"):
 		set_selected((selected_response_idx + 1) % len(responses))
 		
 		

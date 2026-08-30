@@ -1,13 +1,12 @@
 [gd_resource type="Theme" format=3 uid="uid://blgtyb1vfutyc"]
 
-[ext_resource type="FontFile" uid="uid://dqtjp48hbyejs" path="res://assets/fonts/Carpathe/CarpatheBold.ttf" id="1_ddhsp"]
 [ext_resource type="FontFile" uid="uid://dtmadfriyh1m1" path="res://assets/fonts/trade-gothic-bold-condensed-no-20-opentype_ufonts.com.otf" id="2_ddhsp"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7nxc4"]
 
 [resource]
 default_font = ExtResource("2_ddhsp")
-default_font_size = 16
+default_font_size = 128
 LineDisplay/base_type = &"RichTextLabel"
 NameDisplay/base_type = &"RichTextLabel"
 Response/base_type = &"PanelContainer"
@@ -18,6 +17,6 @@ ResponseText/font_sizes/normal_font_size = 20
 ResponseTextSelected/base_type = &"RichTextLabel"
 ResponseTextSelected/colors/default_color = Color(0.94436866, 0.9234832, 0.35146734, 1)
 ResponseTextSelected/font_sizes/normal_font_size = 20
-RichTextLabel/font_sizes/normal_font_size = 30
-RichTextLabel/fonts/bold_font = ExtResource("1_ddhsp")
-RichTextLabel/fonts/normal_font = ExtResource("1_ddhsp")
+RichTextLabel/font_sizes/normal_font_size = 64
+RichTextLabel/fonts/bold_font = ExtResource("2_ddhsp")
+RichTextLabel/fonts/normal_font = ExtResource("2_ddhsp")

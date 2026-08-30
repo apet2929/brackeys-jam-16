@@ -32,12 +32,15 @@ func on_response_selected(response: SpeakerLines.Response):
 
 func set_dialogue(dialogue_lines: SpeakerLines):
 	reset()
-	current_dialogue = dialogue_lines
-	#var display_inst = load("res://scenes/dialogue_display.tscn").instantiate() #dialogue_lines.dialogue_display_scene.instantiate()
-	var display_inst = dialogue_lines.dialogue_display_scene.instantiate()
-	current_dialogue_display = display_inst
-	self.add_child(current_dialogue_display)
-	update_dialogue_ui()
+	if dialogue_lines != null:
+		current_dialogue = dialogue_lines
+		#var display_inst = load("res://scenes/dialogue_display.tscn").instantiate() #dialogue_lines.dialogue_display_scene.instantiate()
+		var display_inst = dialogue_lines.dialogue_display_scene.instantiate()
+		current_dialogue_display = display_inst
+		self.add_child(current_dialogue_display)
+		update_dialogue_ui()
+	else:
+		dialogue_end.emit()
 
 func reset():
 	if current_dialogue_display != null:

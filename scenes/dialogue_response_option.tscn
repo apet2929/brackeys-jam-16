@@ -10,6 +10,9 @@ script = ExtResource("2_enkwr")
 
 [node name="Text" type="RichTextLabel" parent="." unique_id=1159771683]
 layout_mode = 2
-theme_type_variation = &"ResponseText"
+theme = ExtResource("1_3rd7v")
+theme_type_variation = &"LineDisplay"
+theme_override_constants/line_separation = 15
+theme_override_font_sizes/normal_font_size = 48
 text = "Response option 1"
 fit_content = true

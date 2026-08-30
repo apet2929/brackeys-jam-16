@@ -17,4 +17,8 @@ func _on_dialogue_response(response: SpeakerLines.Response):
 
 func display():
 	Globals.ui.dialogue_response_selected.connect(_on_dialogue_response)
+	self.update()
 	dialogue_root.display()
+
+func update():
+	pass

@@ -1,8 +1,17 @@
 extends Node
 
-var knows_origin: bool = false
-var knows_happy_effects: bool = false
-var knows_aliens: bool = false
+var knows_origin: bool = false:
+	set(value):
+		knows_origin = value
+		main.update_dossier(knows_origin, knows_happy_effects, knows_aliens)
+var knows_happy_effects: bool = false:
+	set(value):
+		knows_happy_effects = value
+		main.update_dossier(knows_origin, knows_happy_effects, knows_aliens)
+var knows_aliens: bool = false:
+	set(value):
+		knows_aliens = value
+		main.update_dossier(knows_origin, knows_happy_effects, knows_aliens)
 
 @onready var main: Main
 @onready var ui: UI
@@ -31,7 +40,3 @@ func initialize():
 		
 		print(main)
 		print(ui)
-
-# Update the UI to un-redact dossier info based on our 3 "knows" bools
-func update_dossier():
-	pass

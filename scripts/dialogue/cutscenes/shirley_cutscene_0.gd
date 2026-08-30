@@ -4,43 +4,26 @@ extends Cutscene
 func _init() -> void:
 	super._ready()
 	self.index = 0
-	self.dialogue_root = SpeakerLines.new("Paul", 
+	self.dialogue_root = SpeakerLines.new("Shirley", 
 		[
-			"Hey, how's it going.",
-			"Not too shabby of a party, huh?"
+			"Pleasure to meet you, my name's Shirley with the New York Paper!"
 		]
 	)
-	var line_1 = SpeakerLines.new("Paul", ["You should see what else these people blow our money on. Some of it sounds closer to insanity than helping the public."])
-	var line_2 = SpeakerLines.new("Paul", ["You bet. I'm with the New York Paper so they shuttle me around to all these fancy events. Bores me half to death. My coworker Shirley still enjoys these but there's only so many you can take before it all looks the same."])
-	var line_3 = SpeakerLines.new("Paul", ["Hah, I could use another drink after all this meaningless chatter. Hopefully this will be the one that knocks me out."])
+	var line_1 = SpeakerLines.new("Shirley", ["You know, gotta get caught up on all the gossip! You never know, there might be a scandal right under our noses..."])
+	var line_2 = SpeakerLines.new("Shirley", ["Well, I just joined recently so I'm not terribly sure. I graduated from college just a few months ago!"])
 	self.dialogue_root.response_options = [
-		SpeakerLines.Response.new("Talk about a good use of tax dollars.", line_1),
-		SpeakerLines.Response.new("I've seen better. You come to these things often?", line_2),
-		SpeakerLines.Response.new("Ieffects_line'll know if it's a good party or not once I try the wine. Care to join me?", line_3, "drunk")
+		SpeakerLines.Response.new("Nice to meet you Shirley. What brings you to this party?", line_1),
+		SpeakerLines.Response.new("The paper huh. Any interesting stories lately?", line_2),
 	]
 	
-	var origin_reveal = SpeakerLines.new("Paul", ["Oh yeah, you bet. We're planning a big story about some sort of a chemical weapon out of a North Carolina lab. Part of the reason I'm here is to build connections for when we start interviewing people for comments."])
-	origin_reveal.response_options = [
-		SpeakerLines.Response.new("Thanks for the info man, and good luck with the story.", SpeakerLines.new("Paul", ["Anytime. Just make sure to pick up our paper come Monday."]), "origin_revealed")
-	]
+	var worthless = SpeakerLines.new("Shirley", ["You probably could've guessed, it's just journalism. I'm hoping to get some good use out of it, but these people don't have much information.", 
+												 "The only people who haven't brushed me off are Gregory and you, but I'm preeeetty sure Gregory is crazy."])
+	worthless.response_options = [
+		SpeakerLines.Response.new("That's a shame. Keep trying and I'm sure you'll get somewhere. Try offering one of the old guys a beer and they'll crack like a coconut.", SpeakerLines.new("Shirley", ["Hah, thanks for the advice! I'll give it a shot."])),
+		SpeakerLines.Response.new("You think that Gregory guy is always like that?", SpeakerLines.new("Shirley", ["No, he's actually a representative and a fairly verbose one at that. His behavior is really strange, it's like he's been infected with something"]), "effects_revealed")
+	] as Array[SpeakerLines.Response]
 	
-	line_1.response_options = [
-		SpeakerLines.Response.new("I get what you mean. Any incidents of note recently?", SpeakerLines.new("Paul", ["Nope, or at least not anything I can say before publishing, haha."])),
-		SpeakerLines.Response.new("Have you heard anything about some sort of secret project getting leaked to the public?", origin_reveal)
-	]
-	
-	line_3.next_line = SpeakerLines.new("Narrator",
-		[
-			"You pick up two glasses of wine off the nearby table, handing one to Paul.",
-			"It tastes bitter, probably too expensive for your tastes."
-		],
-		self.player_dialogue_scene
-	)
-	
-	line_3.next_line.next_line = SpeakerLines.new("Paul",
-		[
-			"Heh, thanks for that one.. See you aroun' man *hiccup*."
-		],
-		self.player_dialogue_scene
-	)
-	
+	line_2.response_options = [
+		SpeakerLines.Response.new("Ah, I see. Sorry for bothering you.", SpeakerLines.new("Shirley", ["If you find any juicy stories, let me know! I'm sure there's SOMETHING interesting here."])),
+		SpeakerLines.Response.new("Congratulations. What's your degree in?", worthless)
+	] as Array[SpeakerLines.Response]

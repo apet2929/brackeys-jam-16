@@ -11,9 +11,9 @@ func display_next():
 	if self.current_cutscene.last_response != null:
 		if self.current_cutscene.last_response.ending == "origin_revealed":
 			Globals.knows_origin = true
-		elif self.current_cutscene.index == 0:
+		if self.current_cutscene.index == 0:
 			if self.current_cutscene.last_response.ending == "drunk":
 				self.next_cutscene = PaulCutsceneDrunk.new()
-		else: 
-			self.next_cutscene = PaulCutscene1.new()
+			else:
+				self.next_cutscene = PaulCutscene1.new()
 		super.advance_cutscene()

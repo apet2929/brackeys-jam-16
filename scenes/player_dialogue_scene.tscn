@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://lqk6bxg1ir6g" path="res://scenes/dialogue_display.tscn" id="1_tf28q"]
 [ext_resource type="Theme" uid="uid://blgtyb1vfutyc" path="res://assets/dialogue_theme.tres" id="2_p6b0b"]
+[ext_resource type="FontFile" uid="uid://dtmadfriyh1m1" path="res://assets/fonts/trade-gothic-bold-condensed-no-20-opentype_ufonts.com.otf" id="3_x4adw"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x4adw"]
 content_margin_left = 0.0
@@ -20,3 +21,19 @@ theme = ExtResource("2_p6b0b")
 
 [node name="Div" parent="." index="0" unique_id=429180878]
 theme_override_styles/panel = SubResource("StyleBoxFlat_x4adw")
+
+[node name="VBoxContainer" parent="Div/Padding" parent_id_path=PackedInt32Array(1377230059) index="0" unique_id=467017386]
+theme_override_constants/separation = 30
+
+[node name="SpeakerName" parent="Div/Padding/VBoxContainer" index="0" unique_id=1757089799]
+theme_override_constants/line_separation = 15
+theme_override_fonts/normal_font = ExtResource("3_x4adw")
+theme_override_fonts/bold_font = ExtResource("3_x4adw")
+theme_override_font_sizes/normal_font_size = 48
+
+[node name="Lines" parent="Div/Padding/VBoxContainer" index="1" unique_id=902548169]
+theme_override_constants/line_separation = 15
+
+[node name="Responses" parent="Div/Padding/VBoxContainer" index="2" unique_id=1228126757]
+theme = ExtResource("2_p6b0b")
+theme_override_constants/separation = 15

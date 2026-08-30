@@ -3,6 +3,8 @@ extends Cutscene
 
 func _init() -> void:
 	self.index = 1
+
+func update() -> void:
 	self.dialogue_root = SpeakerLines.new("Paul", 
 		[
 			"Nice to see you again.",
@@ -19,4 +21,4 @@ func _init() -> void:
 
 	effects_line.response_options = [
 		SpeakerLines.Response.new("Thanks for the info man, and good luck with the story.", SpeakerLines.new("Paul", ["Anytime. Just make sure to pick up our paper come Monday."]), "origin_revealed")
-	]
+	] as Array[SpeakerLines.Response]

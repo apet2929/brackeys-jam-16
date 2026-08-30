@@ -16,7 +16,7 @@ func _init() -> void:
 	self.dialogue_root.response_options = [
 		SpeakerLines.Response.new("Talk about a good use of tax dollars.", line_1),
 		SpeakerLines.Response.new("I've seen better. You come to these things often?", line_2),
-		SpeakerLines.Response.new("Ieffects_line'll know if it's a good party or not once I try the wine. Care to join me?", line_3, "drunk")
+		SpeakerLines.Response.new("I'll know if it's a good party or not once I try the wine. Care to join me?", line_3, "drunk")
 	]
 	
 	var origin_reveal = SpeakerLines.new("Paul", ["Oh yeah, you bet. We're planning a big story about some sort of a chemical weapon out of a North Carolina lab. Part of the reason I'm here is to build connections for when we start interviewing people for comments."])

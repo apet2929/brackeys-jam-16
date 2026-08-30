@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://dt0vy6u7msawf" path="res://scripts/ui.gd" id="2_tbgi4"]
 [ext_resource type="PackedScene" uid="uid://dxbcoagxb86wv" path="res://scenes/player.tscn" id="3_jyhfs"]
 [ext_resource type="Texture2D" uid="uid://bfunimk1twiyy" path="res://assets/sprites/watch_face.jpg" id="3_o6xl0"]
+[ext_resource type="Theme" uid="uid://blgtyb1vfutyc" path="res://assets/dialogue_theme.tres" id="4_0ld40"]
 [ext_resource type="PackedScene" uid="uid://cwj6otb0ncbxh" path="res://scenes/box.tscn" id="4_jyhfs"]
 [ext_resource type="Texture2D" uid="uid://xhuyp5wpyacp" path="res://assets/sprites/footprint.jpg" id="5_choun"]
 [ext_resource type="PackedScene" uid="uid://b50ifj6jw7wrf" path="res://scenes/test_environment.tscn" id="5_tefeu"]
@@ -12,7 +13,12 @@
 [ext_resource type="PackedScene" uid="uid://bovaiyxxqciui" path="res://scenes/npc.tscn" id="6_o6xl0"]
 [ext_resource type="Compositor" uid="uid://cd3pypt5f1gmv" path="res://assets/main_compositor.tres" id="6_tipki"]
 [ext_resource type="Script" uid="uid://budsw7lh5w5n" path="res://scripts/dialogue/controllers/cc_paul.gd" id="10_choun"]
+[ext_resource type="Texture2D" uid="uid://dm0e3mxerfe33" path="res://assets/sprites/default-male/default-male.png" id="11_jbj1t"]
+[ext_resource type="Texture2D" uid="uid://bttbxm1qyunc7" path="res://assets/sprites/default-female/default-female.png" id="12_jkv2x"]
 [ext_resource type="PackedScene" uid="uid://bu5nag65jgmve" path="res://scenes/candle.tscn" id="12_trceg"]
+[ext_resource type="Script" uid="uid://bvkdalqluxjb3" path="res://scripts/dialogue/controllers/cc_shirley.gd" id="13_jbj1t"]
+[ext_resource type="Script" uid="uid://bgmnkxxyofq17" path="res://scripts/dialogue/controllers/cc_gregory.gd" id="15_dp3eg"]
+[ext_resource type="Script" uid="uid://bgn855cwcoalp" path="res://scripts/dialogue/controllers/cc_melissa.gd" id="15_muem4"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_knl0n"]
 gravity = Vector3(0, 0, 0)
@@ -51,6 +57,18 @@ agent_max_climb = 0.1
 script = ExtResource("10_choun")
 metadata/_custom_type_script = "uid://budsw7lh5w5n"
 
+[sub_resource type="Resource" id="Resource_x4adw"]
+script = ExtResource("13_jbj1t")
+metadata/_custom_type_script = "uid://bvkdalqluxjb3"
+
+[sub_resource type="Resource" id="Resource_3rtn1"]
+script = ExtResource("15_dp3eg")
+metadata/_custom_type_script = "uid://bgmnkxxyofq17"
+
+[sub_resource type="Resource" id="Resource_muem4"]
+script = ExtResource("15_muem4")
+metadata/_custom_type_script = "uid://bgn855cwcoalp"
+
 [node name="Main" type="Node3D" unique_id=733717212]
 script = ExtResource("1_o5qli")
 
@@ -84,6 +102,64 @@ scale = Vector2(0.5, 0.5)
 value = 100.0
 fill_mode = 4
 texture_progress = ExtResource("3_o6xl0")
+
+[node name="DossierBG" type="ColorRect" parent="UI" unique_id=1658854286]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -503.0
+offset_right = 507.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.74558026, 0.7455802, 0.7455802, 1)
+
+[node name="Dossier" type="RichTextLabel" parent="UI/DossierBG" unique_id=53936128]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 37.0
+offset_top = 23.0
+offset_right = -35.0
+offset_bottom = -28.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("4_0ld40")
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 24
+text = "Description:
+Compound 87-C is an odorless, pale-yellow dust with particle size averaging 0.2 microns. The compound is known to cause numerous physiological, neurological, and psychological effects when ingested. Animal studies suggest that approximately ▮ grams would be fatal to the average adult human.
+
+Compound 87-C is able to form an invisible aerosol extremely easily, even with minor agitation and low humidity. 
+Chemical analysis: 
+An initial spectroscopy study found the substance to be at least partially composed of a Helium-Sulfer excimer. It is unknown how this highly volatile substance remains in a stable solid form at room temperature. 
+
+Further analysis of the chemical structure is on hold following the incident at ▮▮▮▮▮▮▮▮ lab in North Carolina. (Incident report has been reclassified and is no longer contained in this dossier.)
+Handling precautions:
+Compound 87-C should be contained within a non-reactive ampule at all times. If a sample of the compound is released, either accidentally or intentionally, all persons within a 30-meter radius should immediately cover their mouth, hold their breath, and exit the vicinity while gently exhaling through their nose. 
+
+Ordinary dust/gas masks should not be assumed to be adequate protection. Better forms of protection are currently being developed for planned testing, transportation, and deployment.
+Effects:
+Within 15 minutes of direct contact, ingestion, or inhalation of compound 87-C, subjects report a brief period of lightheadedness followed immediately by a drop in resting heart-rate. The initial physiological effects are noticeable as a moderate drop in stress. Subjects prone to anxious or paranoid behaviors appear joyful in low-stimulation environments, and disinterested in environments with negative stimulus. Within 1 hour of exposure, subjects enter a sustained period of euphoria.
+The outward effects of the euphoria differ case-by-case, but nearly all subjects demonstrate an attitude of amusement at otherwise troubling information. In one instance, a subject was told that a nuclear strike was expected to impact their hometown. The subject stared at the wall for a few moments before beginning to chuckle to themself. The laughter continued for approximately 45 minutes, escalating and subsiding at random intervals.
+
+Within 1.5 hours of exposure, physiological symptoms become noticeable. In all cases, the victim’s skin becomes pale across the entire body. Medical examination shows no evidence of anemia accompanying this skin discoloration. In about 75% of cases, the paleness is accompanied by increased redness near the nose and cheekbones.
+
+Within 2 hours of exposure, 100% of victims experience sudden ▮▮▮▮▮▮▮▮▮▮ ▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮ This is usually followed by a momentary loss of consciousness. Acts of physical violence in the ensuing alertness are rare, but not unreported. In cases where subjects do become violent, supervisors report indications of heightened dexterity, balance, and acrobatic ability.
+
+Unless certain measures are taken (see protocol 87-D), all subjects will eventually become preoccupied by their own amusement, to the extent they pay no attention to any person attempting to communicate with them or touch them in any way. Subjects appear to be incapable of experiencing pain, and will continue to engage in behaviors such as dance, juggling, balancing on furniture, or telling jokes to themselves, even if they are suffering from profuse bleeding, broken bones, or missing limbs. While subjects do not appear to be immune to physical ailment, they appear to have no need to consume food or water for upwards of 3 months.
+Source
+There is currently no known method of synthesizing compound 87-C. All known samples were obtained from site 87-A. Site 87-A is a remote location near ▮▮▮▮▮▮▮▮▮ New Mexico containing the wreckage of ▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮
+▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮. 
+Ongoing incident report
+On August 23, 1953, a copy of indecent report 87-C-NC1 was reported missing from a secure compartmentalized information facility in DC. Several other documents related to 87-C have since been reported missing from various nearby facilities. Around the same time, a suspicious vehicle was noticed leaving the site. The plate on the vehicle was registered to a “Dr Philip Blanc”, a name not found in any other government database.  The vehicle was later spotted in the parking lot of the ▮▮▮▮▮▮▮▮▮ ▮▮▮▮▮▮▮▮▮ hotel, during an ongoing campaign banquet hosted by Senator Perry Terrell. An investigation unit was dispatched to recover the lost documents and prevent further unauthorized disclosure.
+"
 
 [node name="Player" parent="." unique_id=1432795309 instance=ExtResource("3_jyhfs")]
 unique_name_in_owner = true
@@ -129,23 +205,33 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.9075642, -2.787363, 0.5215
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -3.7587123, -0.2755193, 0)
 speed = 5
 npc_name = "Paul"
+texture = ExtResource("11_jbj1t")
 nav_group_name = "nav_group_1"
 cutscene_controller = SubResource("Resource_7n8xq")
 
-[node name="npc2" parent="." unique_id=2069918465 groups=["interactable"] instance=ExtResource("6_o6xl0")]
+[node name="Shirley" parent="." unique_id=2069918465 groups=["interactable"] instance=ExtResource("6_o6xl0")]
 transform = Transform3D(-0.63916266, 0, -0.76907164, 0, 1, 0, 0.76907164, 0, -0.63916266, -13.056808, -2.5638976, 0)
 speed = 5
+npc_name = "Shirley"
+texture = ExtResource("12_jkv2x")
 nav_group_name = "nav_group_1"
+cutscene_controller = SubResource("Resource_x4adw")
 
-[node name="npc3" parent="." unique_id=765834564 groups=["interactable"] instance=ExtResource("6_o6xl0")]
+[node name="Gregory" parent="." unique_id=765834564 groups=["interactable"] instance=ExtResource("6_o6xl0")]
 transform = Transform3D(-0.9353352, 0, 0.35376275, 0, 1, 0, -0.35376275, 0, -0.9353352, -9.591292, -2.5638976, -7.5988407)
 speed = 5
+npc_name = "Gregory"
+texture = ExtResource("11_jbj1t")
 nav_group_name = "nav_group_1"
+cutscene_controller = SubResource("Resource_3rtn1")
 
-[node name="npc4" parent="." unique_id=1184566875 groups=["interactable"] instance=ExtResource("6_o6xl0")]
+[node name="Melissa" parent="." unique_id=1184566875 groups=["interactable"] instance=ExtResource("6_o6xl0")]
 transform = Transform3D(0.863735, 0, 0.5039462, 0, 1, 0, -0.5039462, 0, 0.863735, 12.760259, -2.5638976, 0)
 speed = 5
+npc_name = "Melissa"
+texture = ExtResource("12_jkv2x")
 nav_group_name = "nav_group_1"
+cutscene_controller = SubResource("Resource_muem4")
 
 [node name="npc5" parent="." unique_id=379208571 groups=["interactable"] instance=ExtResource("6_o6xl0")]
 transform = Transform3D(0.8558364, 0, -0.51724666, 0, 1, 0, 0.51724666, 0, 0.8558364, -5.3361063, -2.5638976, 6.660204)
@@ -189,3 +275,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.337206, -1.9884126, -15.53
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5782671, 0, 1.3620542)
 
 [node name="fade_transition" parent="." unique_id=15383382 instance=ExtResource("2_eb6dy")]
+visible = false
