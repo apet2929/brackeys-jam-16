@@ -18,7 +18,7 @@ func _ready() -> void:
 	$UI.globals_ready()
 	$UI.dialogue_end.connect(increment_time)
 	current_time_updated.emit(current_time)
-	$fade_transition/AnimationPlayer.play("fade_out")
+	%fade_transition/AnimationPlayer.play("fade_out")
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.pressed:
@@ -44,14 +44,20 @@ func _input(event: InputEvent) -> void:
 
 # Update the UI to un-redact dossier info based on our 3 "knows" bools
 func update_dossier(knows_origin, knows_happy_effects, knows_aliens):
-	%Dossier.text = "Current progress:\n"
+	var dossier = "Current progress: \n"
 	if knows_origin:
-		%Dossier.text += "Originated in a lab in North Carolina\n"
+		dossier += "1. Originated in a lab in North Carolina\n"
+	else:
+		dossier += "1. UNKNOWN\n"
 	if knows_happy_effects:
-		%Dossier.text += "The substance causes subjects to become overly happy and eventually die\n"
+		dossier += "2. The substance causes subjects to become overly happy and eventually die\n"
+	else:
+		dossier += "2. UNKNOWN\n"
 	if knows_aliens:
-		%Dossier.text += "Substance came from an alien landing\n"
-
+		dossier += "3. Substance came from an alien landing\n"
+	else:
+		dossier += "3. UNKNOWN\n"
+	%Dossier.text = dossier
 func accuse(person: String) -> void:
 	%Player.hide_ui()
 	%EndScreen.visible = true

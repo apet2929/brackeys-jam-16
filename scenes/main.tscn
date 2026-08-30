@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://hw40gufuto5x" path="res://scenes/dinner_party_room.tscn" id="11_0ld40"]
 [ext_resource type="Texture2D" uid="uid://dm0e3mxerfe33" path="res://assets/sprites/default-male/default-male.png" id="11_jbj1t"]
 [ext_resource type="Texture2D" uid="uid://bttbxm1qyunc7" path="res://assets/sprites/default-female/default-female.png" id="12_jkv2x"]
+[ext_resource type="PackedScene" uid="uid://bu5nag65jgmve" path="res://scenes/candle.tscn" id="12_trceg"]
 [ext_resource type="Script" uid="uid://bvkdalqluxjb3" path="res://scripts/dialogue/controllers/cc_shirley.gd" id="13_jbj1t"]
 [ext_resource type="Script" uid="uid://bgmnkxxyofq17" path="res://scripts/dialogue/controllers/cc_gregory.gd" id="15_dp3eg"]
 [ext_resource type="Script" uid="uid://bgn855cwcoalp" path="res://scripts/dialogue/controllers/cc_melissa.gd" id="15_muem4"]
@@ -70,9 +71,6 @@ metadata/_custom_type_script = "uid://bgn855cwcoalp"
 [node name="Main" type="Node3D" unique_id=733717212]
 script = ExtResource("1_o5qli")
 
-[node name="fade_transition" parent="." unique_id=15383382 instance=ExtResource("2_eb6dy")]
-visible = false
-
 [node name="UI" type="Control" parent="." unique_id=1313477241]
 unique_name_in_owner = true
 process_mode = 3
@@ -113,7 +111,9 @@ anchor_left = 0.5
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -503.0
+offset_top = 55.0
 offset_right = 507.0
+offset_bottom = -66.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.74558026, 0.7455802, 0.7455802, 1)
@@ -133,17 +133,17 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("4_0ld40")
 theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/normal_font_size = 70
+theme_override_font_sizes/normal_font_size = 24
 text = "Description:
 Compound 87-C is an odorless, pale-yellow dust with particle size averaging 0.2 microns. The compound is known to cause numerous physiological, neurological, and psychological effects when ingested. Animal studies suggest that approximately ▮ grams would be fatal to the average adult human.
 
-Compound 87-C is able to form an invisible aerosol extremely easily, even with minor agitation and low humidity. 
-Chemical analysis: 
-An initial spectroscopy study found the substance to be at least partially composed of a Helium-Sulfer excimer. It is unknown how this highly volatile substance remains in a stable solid form at room temperature. 
+Compound 87-C is able to form an invisible aerosol extremely easily, even with minor agitation and low humidity.
+Chemical analysis:
+An initial spectroscopy study found the substance to be at least partially composed of a Helium-Sulfer excimer. It is unknown how this highly volatile substance remains in a stable solid form at room temperature.
 
 Further analysis of the chemical structure is on hold following the incident at ▮▮▮▮▮▮▮▮ lab in North Carolina. (Incident report has been reclassified and is no longer contained in this dossier.)
 Handling precautions:
-Compound 87-C should be contained within a non-reactive ampule at all times. If a sample of the compound is released, either accidentally or intentionally, all persons within a 30-meter radius should immediately cover their mouth, hold their breath, and exit the vicinity while gently exhaling through their nose. 
+Compound 87-C should be contained within a non-reactive ampule at all times. If a sample of the compound is released, either accidentally or intentionally, all persons within a 30-meter radius should immediately cover their mouth, hold their breath, and exit the vicinity while gently exhaling through their nose.
 
 Ordinary dust/gas masks should not be assumed to be adequate protection. Better forms of protection are currently being developed for planned testing, transportation, and deployment.
 Effects:
@@ -157,7 +157,51 @@ Within 2 hours of exposure, 100% of victims experience sudden ▮▮▮▮▮▮
 Unless certain measures are taken (see protocol 87-D), all subjects will eventually become preoccupied by their own amusement, to the extent they pay no attention to any person attempting to communicate with them or touch them in any way. Subjects appear to be incapable of experiencing pain, and will continue to engage in behaviors such as dance, juggling, balancing on furniture, or telling jokes to themselves, even if they are suffering from profuse bleeding, broken bones, or missing limbs. While subjects do not appear to be immune to physical ailment, they appear to have no need to consume food or water for upwards of 3 months.
 Source
 There is currently no known method of synthesizing compound 87-C. All known samples were obtained from site 87-A. Site 87-A is a remote location near ▮▮▮▮▮▮▮▮▮ New Mexico containing the wreckage of ▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮
-▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮. 
+▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮.
+Ongoing incident report
+On August 23, 1953, a copy of indecent report 87-C-NC1 was reported missing from a secure compartmentalized information facility in DC. Several other documents related to 87-C have since been reported missing from various nearby facilities. Around the same time, a suspicious vehicle was noticed leaving the site. The plate on the vehicle was registered to a “Dr Philip Blanc”, a name not found in any other government database.  The vehicle was later spotted in the parking lot of the ▮▮▮▮▮▮▮▮▮ ▮▮▮▮▮▮▮▮▮ hotel, during an ongoing campaign banquet hosted by Senator Perry Terrell. An investigation unit was dispatched to recover the lost documents and prevent further unauthorized disclosure.
+"
+
+[node name="Dossier2" type="RichTextLabel" parent="UI/DossierBG" unique_id=674233870]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 37.0
+offset_top = 23.0
+offset_right = -35.0
+offset_bottom = -28.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("4_0ld40")
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 24
+text = "Description:
+Compound 87-C is an odorless, pale-yellow dust with particle size averaging 0.2 microns. The compound is known to cause numerous physiological, neurological, and psychological effects when ingested. Animal studies suggest that approximately ▮ grams would be fatal to the average adult human.
+
+Compound 87-C is able to form an invisible aerosol extremely easily, even with minor agitation and low humidity.
+Chemical analysis:
+An initial spectroscopy study found the substance to be at least partially composed of a Helium-Sulfer excimer. It is unknown how this highly volatile substance remains in a stable solid form at room temperature.
+
+Further analysis of the chemical structure is on hold following the incident at ▮▮▮▮▮▮▮▮ lab in North Carolina. (Incident report has been reclassified and is no longer contained in this dossier.)
+Handling precautions:
+Compound 87-C should be contained within a non-reactive ampule at all times. If a sample of the compound is released, either accidentally or intentionally, all persons within a 30-meter radius should immediately cover their mouth, hold their breath, and exit the vicinity while gently exhaling through their nose.
+
+Ordinary dust/gas masks should not be assumed to be adequate protection. Better forms of protection are currently being developed for planned testing, transportation, and deployment.
+Effects:
+Within 15 minutes of direct contact, ingestion, or inhalation of compound 87-C, subjects report a brief period of lightheadedness followed immediately by a drop in resting heart-rate. The initial physiological effects are noticeable as a moderate drop in stress. Subjects prone to anxious or paranoid behaviors appear joyful in low-stimulation environments, and disinterested in environments with negative stimulus. Within 1 hour of exposure, subjects enter a sustained period of euphoria.
+The outward effects of the euphoria differ case-by-case, but nearly all subjects demonstrate an attitude of amusement at otherwise troubling information. In one instance, a subject was told that a nuclear strike was expected to impact their hometown. The subject stared at the wall for a few moments before beginning to chuckle to themself. The laughter continued for approximately 45 minutes, escalating and subsiding at random intervals.
+
+Within 1.5 hours of exposure, physiological symptoms become noticeable. In all cases, the victim’s skin becomes pale across the entire body. Medical examination shows no evidence of anemia accompanying this skin discoloration. In about 75% of cases, the paleness is accompanied by increased redness near the nose and cheekbones.
+
+Within 2 hours of exposure, 100% of victims experience sudden ▮▮▮▮▮▮▮▮▮▮ ▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮ This is usually followed by a momentary loss of consciousness. Acts of physical violence in the ensuing alertness are rare, but not unreported. In cases where subjects do become violent, supervisors report indications of heightened dexterity, balance, and acrobatic ability.
+
+Unless certain measures are taken (see protocol 87-D), all subjects will eventually become preoccupied by their own amusement, to the extent they pay no attention to any person attempting to communicate with them or touch them in any way. Subjects appear to be incapable of experiencing pain, and will continue to engage in behaviors such as dance, juggling, balancing on furniture, or telling jokes to themselves, even if they are suffering from profuse bleeding, broken bones, or missing limbs. While subjects do not appear to be immune to physical ailment, they appear to have no need to consume food or water for upwards of 3 months.
+Source
+There is currently no known method of synthesizing compound 87-C. All known samples were obtained from site 87-A. Site 87-A is a remote location near ▮▮▮▮▮▮▮▮▮ New Mexico containing the wreckage of ▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮
+▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮.
 Ongoing incident report
 On August 23, 1953, a copy of indecent report 87-C-NC1 was reported missing from a secure compartmentalized information facility in DC. Several other documents related to 87-C have since been reported missing from various nearby facilities. Around the same time, a suspicious vehicle was noticed leaving the site. The plate on the vehicle was registered to a “Dr Philip Blanc”, a name not found in any other government database.  The vehicle was later spotted in the parking lot of the ▮▮▮▮▮▮▮▮▮ ▮▮▮▮▮▮▮▮▮ hotel, during an ongoing campaign banquet hosted by Senator Perry Terrell. An investigation unit was dispatched to recover the lost documents and prevent further unauthorized disclosure.
 "
@@ -214,9 +258,13 @@ text = "You win you win you win you win you "
 horizontal_alignment = 1
 autowrap_mode = 2
 
+[node name="fade_transition" parent="UI" unique_id=15383382 instance=ExtResource("2_eb6dy")]
+unique_name_in_owner = true
+layout_mode = 1
+
 [node name="Player" parent="." unique_id=1432795309 instance=ExtResource("3_jyhfs")]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1561297, -3.0458903, 16.073414)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.07654393, -3.0458903, 16.846827)
 
 [node name="LeftFootMarker" type="Marker3D" parent="Player" unique_id=2071499936]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -1)
@@ -301,6 +349,15 @@ transform = Transform3D(-0.46567938, 0, -0.8849535, 0, 1, 0, 0.8849535, 0, -0.46
 texture = ExtResource("11_jbj1t")
 nav_group_name = "nav_group_1"
 
+[node name="Bartender" parent="." unique_id=248199790 groups=["interactable"] instance=ExtResource("6_o6xl0")]
+transform = Transform3D(0.8558364, 0, -0.51724666, 0, 1, 0, 0.51724666, 0, 0.8558364, -0.027499676, -2.5638976, -1.6271496)
+speed = 5
+min_wait_time_per_stop = 0.5
+max_wait_time_per_stop = 3.0
+npc_name = "Bartender"
+texture = ExtResource("11_jbj1t")
+nav_group_name = "nav_group_bar"
+
 [node name="navigation_markers" type="Node3D" parent="." unique_id=1619862232]
 
 [node name="Marker3D" type="Marker3D" parent="navigation_markers" unique_id=1231031722 groups=["nav_group_1"]]
@@ -326,3 +383,27 @@ autoplay = true
 stream = ExtResource("17_muem4")
 volume_db = -1.793
 autoplay = true
+
+[node name="Marker3D6" type="Marker3D" parent="navigation_markers" unique_id=684898995 groups=["nav_group_bar"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.020838, -2.8556004, -1.7101417)
+
+[node name="Marker3D7" type="Marker3D" parent="navigation_markers" unique_id=611141409 groups=["nav_group_bar"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.452112, -2.8556004, -1.582274)
+
+[node name="candle" parent="." unique_id=1835713593 instance=ExtResource("12_trceg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.054560393, -1.9196607, 5.869292)
+
+[node name="candle2" parent="." unique_id=2076753157 instance=ExtResource("12_trceg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.012932, -1.9196609, 5.7739496)
+
+[node name="candle3" parent="." unique_id=206066076 instance=ExtResource("12_trceg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.050205, -1.9196609, 12.911039)
+
+[node name="candle4" parent="." unique_id=943537264 instance=ExtResource("12_trceg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.027605683, -1.9196607, 12.958856)
+
+[node name="candle5" parent="." unique_id=1494575692 instance=ExtResource("12_trceg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.108492, -1.9196608, 12.992368)
+
+[node name="candle6" parent="." unique_id=1193177204 instance=ExtResource("12_trceg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.100228, -1.919661, 5.8297367)

@@ -94,11 +94,14 @@ func _get_next_position():
 		state = 1
 
 func interact() -> void:
-	# No cutscene_controller = not interactable
-	if (cutscene_controller != null):
+	if interactable():
 		self.state = 2
 		cutscene_controller.display_next()
 		Globals.ui.dialogue_end.connect(on_cutscene_end)
+		
+func interactable() -> bool:
+	# No cutscene_controller = not interactable
+	return cutscene_controller != null
 	
 func on_cutscene_end():
 	self.state = 0

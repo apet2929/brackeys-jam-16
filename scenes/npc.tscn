@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://c78rd5w6n7ai5" path="res://scripts/npc_movement.gd" id="1_abqhh"]
 [ext_resource type="Texture2D" uid="uid://c1vpxn2hqoupo" path="res://assets/sprites/guy/guy_animated_sprite.tres" id="3_7n8xq"]
 [ext_resource type="Script" uid="uid://cokpr7q6t46a0" path="res://scripts/npc_collisions.gd" id="3_rv78h"]
+[ext_resource type="Texture2D" uid="uid://dm0e3mxerfe33" path="res://assets/sprites/default-male/default-male.png" id="4_4wlns"]
 [ext_resource type="Script" uid="uid://da6cqseo35v3s" path="res://scripts/npc_sprite.gd" id="4_7n8xq"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_5y2tm"]
@@ -37,7 +38,7 @@ shape = SubResource("CapsuleShape3D_ydmyw")
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0.8008841, 0)
 billboard = 1
 shaded = true
-texture = ExtResource("3_7n8xq")
+texture = ExtResource("4_4wlns")
 script = ExtResource("4_7n8xq")
 
 [node name="Label3D" type="Label3D" parent="." unique_id=1876820746]

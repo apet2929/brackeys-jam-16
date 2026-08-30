@@ -47,7 +47,7 @@ func _physics_process(delta: float) -> void:
 		%interact_text.hide()
 		if %interact_ray.is_colliding():
 			var target = %interact_ray.get_collider()
-			if target && (target.is_in_group("interactable") || target.is_in_group("pickupable")):
+			if target && target.is_in_group("interactable") && target.interactable():
 					%interact_text.show()
 					if Input.is_action_just_pressed("interact"):
 						if target.is_in_group("interactable"):

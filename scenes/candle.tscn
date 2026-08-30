@@ -1,9 +1,14 @@
 [gd_scene format=3 uid="uid://bu5nag65jgmve"]
 
 [ext_resource type="PackedScene" uid="uid://b1nk7u4phc3sk" path="res://assets/models/candle/candle.glb" id="1_ctofe"]
+[ext_resource type="Script" uid="uid://b1ikxxhf0yndn" path="res://scripts/candle.gd" id="2_j6qyb"]
 
 [node name="candle" unique_id=1835713593 instance=ExtResource("1_ctofe")]
+script = ExtResource("2_j6qyb")
 
 [node name="Point" parent="." index="5" unique_id=1951362631]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0.0011383878, 0.23383181, -0.0009108132)
-light_energy = 0.1
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -0.0006172372, 0.24993816, -0.0009108132)
+light_color = Color(1, 0.6156863, 0.27058825, 1)
+light_energy = 0.3
+shadow_enabled = true
+omni_range = 10.0
