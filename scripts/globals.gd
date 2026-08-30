@@ -1,5 +1,9 @@
 extends Node
 
+var knows_origin: bool = false
+var knows_happy_effects: bool = false
+var knows_aliens: bool = false
+
 @onready var main: Main
 @onready var ui: UI
 # This is an autoload singleton. 
@@ -27,5 +31,7 @@ func initialize():
 		
 		print(main)
 		print(ui)
-	print('initialized')
-	print(root_node)
+
+# Update the UI to un-redact dossier info based on our 3 "knows" bools
+func update_dossier():
+	pass

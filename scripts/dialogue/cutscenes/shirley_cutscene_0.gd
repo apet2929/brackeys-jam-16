@@ -1,4 +1,4 @@
-class_name PaulCutscene0
+class_name ShirleyCutscene0
 extends Cutscene
 
 func _init() -> void:

@@ -1,8 +1,11 @@
-class_name PaulCutsceneController
+class_name ShirleyCutsceneController
 extends CutsceneController
 
+var shown_aliens: bool = false
+var shown_effects: bool = false
+
 func _init():
-	self.current_cutscene = PaulCutscene0.new()
+	self.current_cutscene = ShirleyCutscene0.new()
 	self.next_cutscene = self.current_cutscene
 
 func display_next():
