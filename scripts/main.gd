@@ -34,12 +34,20 @@ There is currently no known method of synthesizing compound 87-C. All known samp
 On August 23, 1953, a copy of indecent report 87-C-NC1 was reported missing from a secure compartmentalized information facility in DC. Several other documents related to 87-C have since been reported missing from various nearby facilities. Around the same time, a suspicious vehicle was noticed leaving the site. The plate on the vehicle was registered to a “Dr Philip Blanc”, a name not found in any other government database.  The vehicle was later spotted in the parking lot of the ▮▮▮▮▮▮▮▮▮ ▮▮▮▮▮▮▮▮▮ hotel, during an ongoing campaign banquet hosted by Senator Perry Terrell. An investigation unit was dispatched to recover the lost documents and prevent further unauthorized disclosure.
 """
 
+var clock_images = [
+	preload("res://assets/sprites/watch/00-time.png"),
+	preload("res://assets/sprites/watch/10-time.png"),
+	preload("res://assets/sprites/watch/20-time.png"),
+	preload("res://assets/sprites/watch/30-time.png"),
+	preload("res://assets/sprites/watch/40-time.png"),
+	preload("res://assets/sprites/watch/50-time.png")
+]
+var clock_index = 0
 
 # It's common to have 1 root scene that contains the current level
 # and anything that should be persisted between levels
 # the Main instance can be found via Globals.main
 signal current_time_updated(new_current_time)
-var current_time = 0.0
 const MAX_TIME = 100
 var game_over = false
 var dossier_out = false
@@ -56,7 +64,7 @@ func _ready() -> void:
 	Globals.initialize()
 	$UI.globals_ready()
 	$UI.dialogue_end.connect(increment_time)
-	current_time_updated.emit(current_time)
+	current_time_updated.emit(clock_index)
 	%fade_transition/AnimationPlayer.play("fade_out")
 	
 	# fade the music/ambience in
@@ -144,8 +152,9 @@ func accuse(person: String) -> void:
 		%EndText.text = "Sorry, "+person+" was not the leaker."
 
 func increment_time():
-	current_time += 10
-	current_time_updated.emit(current_time)
-	print("Current time is now: %f" % current_time)
-	if current_time >= 100:
+	clock_index += 1
+	%Timer.texture = clock_images[clock_index/2]
+	current_time_updated.emit(clock_index)
+	print("Current time is now: %f" % clock_index)
+	if clock_index >= 12:
 		accuse("Timer")

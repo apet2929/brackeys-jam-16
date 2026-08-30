@@ -129,8 +129,7 @@ func make_footprint():
 	left_foot = !left_foot
 	
 	var foot_location = Transform3D()
-	if foot_marker:
-		foot_location.origin = foot_marker.global_position
+	foot_location.origin.y = 1
 	
 	$Footprints.emit_particle(
 		transform,

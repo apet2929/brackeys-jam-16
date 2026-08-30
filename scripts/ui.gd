@@ -11,12 +11,8 @@ var current_line = 0
 var selecting_response = false
 
 func globals_ready() -> void:
-	$Timer.max_value = Globals.main.MAX_TIME
-	Globals.main.current_time_updated.connect(update_timer)
+	pass
 
-func update_timer(time):
-	$Timer.value = Globals.main.MAX_TIME - time
-	
 func in_dialogue() -> bool:
 	return current_dialogue != null
 
