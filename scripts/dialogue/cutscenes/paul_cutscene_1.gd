@@ -8,7 +8,7 @@ func update() -> void:
 	self.dialogue_root = SpeakerLines.new("Paul", 
 		[
 			"Nice to see you again.",
-			"Already talk to everyboady interesting here? I'm just want to go back home already."
+			"Already talk to everyboady interesting here? I just want to go back home already."
 		]
 	)
 	var effects_line = SpeakerLines.new("Paul", ["Laughing gas, you say? Can't say I've quite heard of it, but that might be an interesting theory to another story I'm working on. Rumor has it, a chemical weapon is being built in a lab in North Carolina. It's a valuable story to me since my family lives back there. I visit them all the time and couldn't fathom a chemical attack over there."])

@@ -136,6 +136,9 @@ func accuse(person: String) -> void:
 	if person == "Paul":
 		%EndTitle.text = "YOU WIN!"
 		%EndText.text = "Paul was the leaker. He frequently visited his family near the site in North Carolina, had a security clearance for access, and offhand mentioned excessive laughing."
+	elif person == "Timer":
+		%EndTitle.text = "YOU LOSE!"
+		%EndText.text = "You ran out of time. The secret substance got out and killed everyone everywhere. Good thing you have qualified immunity."
 	else:
 		%EndTitle.text = "YOU LOSE!"
 		%EndText.text = "Sorry, "+person+" was not the leaker."
@@ -144,3 +147,5 @@ func increment_time():
 	current_time += 10
 	current_time_updated.emit(current_time)
 	print("Current time is now: %f" % current_time)
+	if current_time >= 100:
+		accuse("Timer")
