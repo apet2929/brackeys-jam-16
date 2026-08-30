@@ -153,8 +153,9 @@ func accuse(person: String) -> void:
 
 func increment_time():
 	clock_index += 1
-	%Timer.texture = clock_images[clock_index/2]
 	current_time_updated.emit(clock_index)
 	print("Current time is now: %f" % clock_index)
 	if clock_index >= 12:
 		accuse("Timer")
+	else:
+		%Timer.texture = clock_images[clock_index/2]

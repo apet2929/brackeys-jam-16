@@ -44,7 +44,10 @@ func _physics_process(delta: float) -> void:
 		return
 	if not is_on_floor():
 		velocity += get_gravity()*delta
-	if not in_dialogue:
+	if in_dialogue:
+		velocity.x = 0
+		velocity.z = 0
+	else:
 		if currently_held:
 			currently_held.gravity_scale = 0
 			currently_held.global_position = currently_held.global_position.lerp(%hand.global_position, delta * 50.0)
