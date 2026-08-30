@@ -8,6 +8,8 @@ signal current_time_updated(new_current_time)
 var current_time = 0.0
 const MAX_TIME = 100
 var game_over = false
+var dossier_out = false
+var dossier_page = 1
 
 # In web builds, we can't capture mouse input until atleast 1 input event is registered
 var first_input_captured = false 
@@ -32,26 +34,51 @@ func _ready() -> void:
 	var ambience_fade := create_tween()
 	ambience_fade.tween_property(ambience, "volume_db", -1.793, 1.0)
 
+func flip_dossier() -> void:
+	if dossier_page == 1:
+		%Dossier1.visible = false
+		%Dossier2.visible = true
+		%Dossier3.visible = false
+		dossier_page = 2
+	elif dossier_page == 2:
+		%Dossier1.visible = false
+		%Dossier2.visible = false
+		%Dossier3.visible = true
+		dossier_page = 3
+	elif dossier_page == 3:
+		%Dossier1.visible = true
+		%Dossier2.visible = false
+		%Dossier3.visible = false
+		dossier_page = 1
+	%DossierIndex.text = str(dossier_page)
+		
+
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.pressed:
 		if game_over:
 			get_tree().quit()
-		else:
-			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+		elif dossier_out:
+			flip_dossier()
+		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	if !first_input_captured:
 		first_input_captured = true
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	
 	if event.is_action_released("ui_cancel"):
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-	if event.is_action_pressed("tab"):
-		%Player.hide_ui()
-		%DossierBG.visible = true
-		%Dossier.visible = true
 	if event.is_action_released("tab"):
-		%Player.unhide_ui()
-		%DossierBG.visible = false
-		%Dossier.visible = false
+		if dossier_out:
+			dossier_out = false
+			%Player.unhide_ui()
+			%DossierBG.visible = false
+			%Dossier1.visible = false
+			%DossierIndex.visible = false
+		else:
+			dossier_out = true
+			%Player.hide_ui()
+			%DossierBG.visible = true
+			%Dossier1.visible = true
+			%DossierIndex.visible = true
 		
 
 # Update the UI to un-redact dossier info based on our 3 "knows" bools
@@ -69,7 +96,7 @@ func update_dossier(knows_origin, knows_happy_effects, knows_aliens):
 		dossier += "3. Substance came from an alien landing\n"
 	else:
 		dossier += "3. UNKNOWN\n"
-	%Dossier.text = dossier
+	%Dossier0.text = dossier
 func accuse(person: String) -> void:
 	%Player.hide_ui()
 	%EndScreen.visible = true

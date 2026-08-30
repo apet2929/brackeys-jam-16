@@ -118,7 +118,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.74558026, 0.7455802, 0.7455802, 1)
 
-[node name="Dossier" type="RichTextLabel" parent="UI/DossierBG" unique_id=53936128]
+[node name="Dossier1" type="RichTextLabel" parent="UI/DossierBG" unique_id=53936128]
 unique_name_in_owner = true
 visible = false
 layout_mode = 1
@@ -133,8 +133,10 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("4_0ld40")
 theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/normal_font_size = 24
-text = "Description:
+theme_override_constants/line_separation = 2
+theme_override_font_sizes/normal_font_size = 26
+bbcode_enabled = true
+text = "[b][u]Description:[/u][/b]
 Compound 87-C is an odorless, pale-yellow dust with particle size averaging 0.2 microns. The compound is known to cause numerous physiological, neurological, and psychological effects when ingested. Animal studies suggest that approximately ▮ grams would be fatal to the average adult human.
 
 Compound 87-C is able to form an invisible aerosol extremely easily, even with minor agitation and low humidity.
@@ -146,23 +148,9 @@ Handling precautions:
 Compound 87-C should be contained within a non-reactive ampule at all times. If a sample of the compound is released, either accidentally or intentionally, all persons within a 30-meter radius should immediately cover their mouth, hold their breath, and exit the vicinity while gently exhaling through their nose.
 
 Ordinary dust/gas masks should not be assumed to be adequate protection. Better forms of protection are currently being developed for planned testing, transportation, and deployment.
-Effects:
-Within 15 minutes of direct contact, ingestion, or inhalation of compound 87-C, subjects report a brief period of lightheadedness followed immediately by a drop in resting heart-rate. The initial physiological effects are noticeable as a moderate drop in stress. Subjects prone to anxious or paranoid behaviors appear joyful in low-stimulation environments, and disinterested in environments with negative stimulus. Within 1 hour of exposure, subjects enter a sustained period of euphoria.
-The outward effects of the euphoria differ case-by-case, but nearly all subjects demonstrate an attitude of amusement at otherwise troubling information. In one instance, a subject was told that a nuclear strike was expected to impact their hometown. The subject stared at the wall for a few moments before beginning to chuckle to themself. The laughter continued for approximately 45 minutes, escalating and subsiding at random intervals.
-
-Within 1.5 hours of exposure, physiological symptoms become noticeable. In all cases, the victim’s skin becomes pale across the entire body. Medical examination shows no evidence of anemia accompanying this skin discoloration. In about 75% of cases, the paleness is accompanied by increased redness near the nose and cheekbones.
-
-Within 2 hours of exposure, 100% of victims experience sudden ▮▮▮▮▮▮▮▮▮▮ ▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮ This is usually followed by a momentary loss of consciousness. Acts of physical violence in the ensuing alertness are rare, but not unreported. In cases where subjects do become violent, supervisors report indications of heightened dexterity, balance, and acrobatic ability.
-
-Unless certain measures are taken (see protocol 87-D), all subjects will eventually become preoccupied by their own amusement, to the extent they pay no attention to any person attempting to communicate with them or touch them in any way. Subjects appear to be incapable of experiencing pain, and will continue to engage in behaviors such as dance, juggling, balancing on furniture, or telling jokes to themselves, even if they are suffering from profuse bleeding, broken bones, or missing limbs. While subjects do not appear to be immune to physical ailment, they appear to have no need to consume food or water for upwards of 3 months.
-Source
-There is currently no known method of synthesizing compound 87-C. All known samples were obtained from site 87-A. Site 87-A is a remote location near ▮▮▮▮▮▮▮▮▮ New Mexico containing the wreckage of ▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮
-▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮.
-Ongoing incident report
-On August 23, 1953, a copy of indecent report 87-C-NC1 was reported missing from a secure compartmentalized information facility in DC. Several other documents related to 87-C have since been reported missing from various nearby facilities. Around the same time, a suspicious vehicle was noticed leaving the site. The plate on the vehicle was registered to a “Dr Philip Blanc”, a name not found in any other government database.  The vehicle was later spotted in the parking lot of the ▮▮▮▮▮▮▮▮▮ ▮▮▮▮▮▮▮▮▮ hotel, during an ongoing campaign banquet hosted by Senator Perry Terrell. An investigation unit was dispatched to recover the lost documents and prevent further unauthorized disclosure.
 "
 
-[node name="Dossier2" type="RichTextLabel" parent="UI/DossierBG" unique_id=674233870]
+[node name="Dossier2" type="RichTextLabel" parent="UI/DossierBG" unique_id=1503287428]
 unique_name_in_owner = true
 visible = false
 layout_mode = 1
@@ -177,20 +165,10 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("4_0ld40")
 theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/normal_font_size = 24
-text = "Description:
-Compound 87-C is an odorless, pale-yellow dust with particle size averaging 0.2 microns. The compound is known to cause numerous physiological, neurological, and psychological effects when ingested. Animal studies suggest that approximately ▮ grams would be fatal to the average adult human.
-
-Compound 87-C is able to form an invisible aerosol extremely easily, even with minor agitation and low humidity.
-Chemical analysis:
-An initial spectroscopy study found the substance to be at least partially composed of a Helium-Sulfer excimer. It is unknown how this highly volatile substance remains in a stable solid form at room temperature.
-
-Further analysis of the chemical structure is on hold following the incident at ▮▮▮▮▮▮▮▮ lab in North Carolina. (Incident report has been reclassified and is no longer contained in this dossier.)
-Handling precautions:
-Compound 87-C should be contained within a non-reactive ampule at all times. If a sample of the compound is released, either accidentally or intentionally, all persons within a 30-meter radius should immediately cover their mouth, hold their breath, and exit the vicinity while gently exhaling through their nose.
-
-Ordinary dust/gas masks should not be assumed to be adequate protection. Better forms of protection are currently being developed for planned testing, transportation, and deployment.
-Effects:
+theme_override_constants/line_separation = 2
+theme_override_font_sizes/normal_font_size = 26
+bbcode_enabled = true
+text = "[b][u]Effects:[/u][/b]
 Within 15 minutes of direct contact, ingestion, or inhalation of compound 87-C, subjects report a brief period of lightheadedness followed immediately by a drop in resting heart-rate. The initial physiological effects are noticeable as a moderate drop in stress. Subjects prone to anxious or paranoid behaviors appear joyful in low-stimulation environments, and disinterested in environments with negative stimulus. Within 1 hour of exposure, subjects enter a sustained period of euphoria.
 The outward effects of the euphoria differ case-by-case, but nearly all subjects demonstrate an attitude of amusement at otherwise troubling information. In one instance, a subject was told that a nuclear strike was expected to impact their hometown. The subject stared at the wall for a few moments before beginning to chuckle to themself. The laughter continued for approximately 45 minutes, escalating and subsiding at random intervals.
 
@@ -199,12 +177,54 @@ Within 1.5 hours of exposure, physiological symptoms become noticeable. In all c
 Within 2 hours of exposure, 100% of victims experience sudden ▮▮▮▮▮▮▮▮▮▮ ▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮ This is usually followed by a momentary loss of consciousness. Acts of physical violence in the ensuing alertness are rare, but not unreported. In cases where subjects do become violent, supervisors report indications of heightened dexterity, balance, and acrobatic ability.
 
 Unless certain measures are taken (see protocol 87-D), all subjects will eventually become preoccupied by their own amusement, to the extent they pay no attention to any person attempting to communicate with them or touch them in any way. Subjects appear to be incapable of experiencing pain, and will continue to engage in behaviors such as dance, juggling, balancing on furniture, or telling jokes to themselves, even if they are suffering from profuse bleeding, broken bones, or missing limbs. While subjects do not appear to be immune to physical ailment, they appear to have no need to consume food or water for upwards of 3 months.
-Source
+"
+
+[node name="Dossier3" type="RichTextLabel" parent="UI/DossierBG" unique_id=872244156]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 37.0
+offset_top = 23.0
+offset_right = -35.0
+offset_bottom = -28.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("4_0ld40")
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_constants/line_separation = 2
+theme_override_font_sizes/normal_font_size = 26
+bbcode_enabled = true
+text = "[b][u]Source[/u][/b]
 There is currently no known method of synthesizing compound 87-C. All known samples were obtained from site 87-A. Site 87-A is a remote location near ▮▮▮▮▮▮▮▮▮ New Mexico containing the wreckage of ▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮
 ▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮.
-Ongoing incident report
+
+[b][u]Ongoing incident report[/u][/b]
 On August 23, 1953, a copy of indecent report 87-C-NC1 was reported missing from a secure compartmentalized information facility in DC. Several other documents related to 87-C have since been reported missing from various nearby facilities. Around the same time, a suspicious vehicle was noticed leaving the site. The plate on the vehicle was registered to a “Dr Philip Blanc”, a name not found in any other government database.  The vehicle was later spotted in the parking lot of the ▮▮▮▮▮▮▮▮▮ ▮▮▮▮▮▮▮▮▮ hotel, during an ongoing campaign banquet hosted by Senator Perry Terrell. An investigation unit was dispatched to recover the lost documents and prevent further unauthorized disclosure.
 "
+
+[node name="DossierIndex" type="Label" parent="UI/DossierBG" unique_id=661840802]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -88.0
+offset_top = -97.0
+offset_right = -33.0
+offset_bottom = -24.0
+grow_horizontal = 0
+grow_vertical = 0
+theme = ExtResource("4_0ld40")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="EndScreen" type="ColorRect" parent="UI" unique_id=993794003]
 unique_name_in_owner = true
@@ -375,6 +395,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.701294, -2.5282652, 15.3077
 [node name="Marker3D5" type="Marker3D" parent="navigation_markers" unique_id=1504356889 groups=["nav_group_1"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.175748, -1.9884121, 0.9469099)
 
+[node name="Marker3D6" type="Marker3D" parent="navigation_markers" unique_id=684898995 groups=["nav_group_bar"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.020838, -2.8556004, -1.7101417)
+
+[node name="Marker3D7" type="Marker3D" parent="navigation_markers" unique_id=611141409 groups=["nav_group_bar"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.452112, -2.8556004, -1.582274)
+
 [node name="music_track" type="AudioStreamPlayer" parent="." unique_id=331911846]
 stream = ExtResource("16_jbj1t")
 autoplay = true
@@ -383,12 +409,6 @@ autoplay = true
 stream = ExtResource("17_muem4")
 volume_db = -1.793
 autoplay = true
-
-[node name="Marker3D6" type="Marker3D" parent="navigation_markers" unique_id=684898995 groups=["nav_group_bar"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.020838, -2.8556004, -1.7101417)
-
-[node name="Marker3D7" type="Marker3D" parent="navigation_markers" unique_id=611141409 groups=["nav_group_bar"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.452112, -2.8556004, -1.582274)
 
 [node name="candle" parent="." unique_id=1835713593 instance=ExtResource("12_trceg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.054560393, -1.9196607, 5.869292)

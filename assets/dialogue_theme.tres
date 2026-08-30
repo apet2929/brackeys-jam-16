@@ -1,12 +1,13 @@
 [gd_resource type="Theme" format=3 uid="uid://blgtyb1vfutyc"]
 
+[ext_resource type="FontFile" uid="uid://df122cvma0haw" path="res://assets/fonts/trade-gothic-condensed-no-18-opentype_ufonts.com.otf" id="2_2ar8x"]
 [ext_resource type="FontFile" uid="uid://dtmadfriyh1m1" path="res://assets/fonts/trade-gothic-bold-condensed-no-20-opentype_ufonts.com.otf" id="2_ddhsp"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7nxc4"]
 
 [resource]
-default_font = ExtResource("2_ddhsp")
-default_font_size = 128
+default_font = ExtResource("2_2ar8x")
+default_font_size = 48
 LineDisplay/base_type = &"RichTextLabel"
 NameDisplay/base_type = &"RichTextLabel"
 Response/base_type = &"PanelContainer"
@@ -19,4 +20,4 @@ ResponseTextSelected/colors/default_color = Color(0.94436866, 0.9234832, 0.35146
 ResponseTextSelected/font_sizes/normal_font_size = 20
 RichTextLabel/font_sizes/normal_font_size = 64
 RichTextLabel/fonts/bold_font = ExtResource("2_ddhsp")
-RichTextLabel/fonts/normal_font = ExtResource("2_ddhsp")
+RichTextLabel/fonts/normal_font = ExtResource("2_2ar8x")
