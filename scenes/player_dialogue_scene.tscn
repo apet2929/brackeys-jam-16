@@ -16,24 +16,39 @@ corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 corner_detail = 5
 
+[sub_resource type="Theme" id="Theme_dqkch"]
+
 [node name="Margin" unique_id=663509831 instance=ExtResource("1_tf28q")]
 theme = ExtResource("2_p6b0b")
 
 [node name="Div" parent="." index="0" unique_id=429180878]
 theme_override_styles/panel = SubResource("StyleBoxFlat_x4adw")
 
-[node name="VBoxContainer" parent="Div/Padding" parent_id_path=PackedInt32Array(1377230059) index="0" unique_id=467017386]
+[node name="Padding" parent="Div" index="0" unique_id=1377230059]
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 40
+
+[node name="VBoxContainer" parent="Div/Padding" index="0" unique_id=467017386]
+theme = SubResource("Theme_dqkch")
 theme_override_constants/separation = 30
 
 [node name="SpeakerName" parent="Div/Padding/VBoxContainer" index="0" unique_id=1757089799]
+custom_minimum_size = Vector2(50, 50)
+size_flags_vertical = 4
 theme_override_constants/line_separation = 15
 theme_override_fonts/normal_font = ExtResource("3_x4adw")
 theme_override_fonts/bold_font = ExtResource("3_x4adw")
 theme_override_font_sizes/normal_font_size = 48
 
 [node name="Lines" parent="Div/Padding/VBoxContainer" index="1" unique_id=902548169]
+custom_minimum_size = Vector2(50, 50)
+size_flags_vertical = 4
 theme_override_constants/line_separation = 15
 
 [node name="Responses" parent="Div/Padding/VBoxContainer" index="2" unique_id=1228126757]
+custom_minimum_size = Vector2(50, 50)
+size_flags_vertical = 4
 theme = ExtResource("2_p6b0b")
 theme_override_constants/separation = 15
