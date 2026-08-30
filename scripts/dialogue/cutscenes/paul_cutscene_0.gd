@@ -22,12 +22,12 @@ func _init() -> void:
 	var origin_reveal = SpeakerLines.new("Paul", ["Oh yeah, you bet. We're planning a big story about some sort of a chemical weapon out of a North Carolina lab. Part of the reason I'm here is to build connections for when we start interviewing people for comments."])
 	origin_reveal.response_options = [
 		SpeakerLines.Response.new("Thanks for the info man, and good luck with the story.", SpeakerLines.new("Paul", ["Anytime. Just make sure to pick up our paper come Monday."]), "origin_revealed")
-	]
+	] as Array[SpeakerLines.Response]
 	
 	line_1.response_options = [
 		SpeakerLines.Response.new("I get what you mean. Any incidents of note recently?", SpeakerLines.new("Paul", ["Nope, or at least not anything I can say before publishing, haha."])),
 		SpeakerLines.Response.new("Have you heard anything about some sort of secret project getting leaked to the public?", origin_reveal)
-	]
+	] as Array[SpeakerLines.Response]
 	
 	line_3.next_line = SpeakerLines.new("Narrator",
 		[
