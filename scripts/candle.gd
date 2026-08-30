@@ -10,4 +10,3 @@ func _process(delta):
 	flicker += sin(time * 13.0) * 0.08
 
 	$Point.light_energy = base_energy + flicker
-	print($Point.light_energy)

@@ -69,9 +69,6 @@ metadata/_custom_type_script = "uid://bgn855cwcoalp"
 [node name="Main" type="Node3D" unique_id=733717212]
 script = ExtResource("1_o5qli")
 
-[node name="fade_transition" parent="." unique_id=15383382 instance=ExtResource("2_eb6dy")]
-visible = false
-
 [node name="UI" type="Control" parent="." unique_id=1313477241]
 unique_name_in_owner = true
 process_mode = 3
@@ -212,6 +209,10 @@ theme_override_font_sizes/font_size = 70
 text = "You win you win you win you win you "
 horizontal_alignment = 1
 autowrap_mode = 2
+
+[node name="fade_transition" parent="UI" unique_id=15383382 instance=ExtResource("2_eb6dy")]
+unique_name_in_owner = true
+layout_mode = 1
 
 [node name="Player" parent="." unique_id=1432795309 instance=ExtResource("3_jyhfs")]
 unique_name_in_owner = true

@@ -18,7 +18,7 @@ func _ready() -> void:
 	$UI.globals_ready()
 	$UI.dialogue_end.connect(increment_time)
 	current_time_updated.emit(current_time)
-	$fade_transition/AnimationPlayer.play("fade_out")
+	%fade_transition/AnimationPlayer.play("fade_out")
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.pressed:
