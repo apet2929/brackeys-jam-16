@@ -1,6 +1,6 @@
 extends Node3D
 
-var sensitivity := 0.2
+var sensitivity := 0.08
 var in_dialogue = false
 
 func _ready() -> void:

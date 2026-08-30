@@ -25,8 +25,8 @@ func _ready() -> void:
 	notepad.visible = false
 	notepad.tab_input_mode = false
 	notepad.theme = load("res://assets/notepad.tres")
-	add_to_inventory(load("res://scenes/gun.tscn"))
-	add_to_inventory(load("res://scenes/gun2.tscn"))
+	#add_to_inventory(load("res://scenes/gun.tscn"))
+	#add_to_inventory(load("res://scenes/gun2.tscn"))
 	%UI.dialogue_start.connect(
 		(func (_arg):
 			self.in_dialogue = true
@@ -155,15 +155,6 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("use"):
 		if currently_held and currently_held.has_method("use"):
 			currently_held.use()
-
-	if Input.is_action_just_released("ui_cancel"):
-		if inventory_held_item_idx != -1:
-			inventory_held_item_idx = -1
-			unequip_item_from_inventory()
-			
-			
-	if Input.is_action_just_released("ui_right"):
-		increment_inventory_held_item(1)
 		
 func increment_inventory_held_item(dir):
 	if inventory_held_item == null:
