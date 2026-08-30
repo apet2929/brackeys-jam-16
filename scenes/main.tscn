@@ -299,6 +299,15 @@ transform = Transform3D(-0.46567938, 0, -0.8849535, 0, 1, 0, 0.8849535, 0, -0.46
 texture = ExtResource("11_jbj1t")
 nav_group_name = "nav_group_1"
 
+[node name="Bartender" parent="." unique_id=248199790 groups=["interactable"] instance=ExtResource("6_o6xl0")]
+transform = Transform3D(0.8558364, 0, -0.51724666, 0, 1, 0, 0.51724666, 0, 0.8558364, -0.027499676, -2.5638976, -1.6271496)
+speed = 5
+min_wait_time_per_stop = 0.5
+max_wait_time_per_stop = 3.0
+npc_name = "Bartender"
+texture = ExtResource("11_jbj1t")
+nav_group_name = "nav_group_bar"
+
 [node name="navigation_markers" type="Node3D" parent="." unique_id=1619862232]
 
 [node name="Marker3D" type="Marker3D" parent="navigation_markers" unique_id=1231031722 groups=["nav_group_1"]]
@@ -315,3 +324,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.701294, -2.5282652, 15.3077
 
 [node name="Marker3D5" type="Marker3D" parent="navigation_markers" unique_id=1504356889 groups=["nav_group_1"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.175748, -1.9884121, 0.9469099)
+
+[node name="Marker3D6" type="Marker3D" parent="navigation_markers" unique_id=684898995 groups=["nav_group_bar"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.020838, -2.8556004, -1.7101417)
+
+[node name="Marker3D7" type="Marker3D" parent="navigation_markers" unique_id=611141409 groups=["nav_group_bar"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.452112, -2.8556004, -1.582274)
