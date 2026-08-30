@@ -4,6 +4,8 @@ extends Cutscene
 func _init() -> void:
 	super._ready()
 	self.index = 1
+
+func update():
 	self.dialogue_root = SpeakerLines.new("Gregory", 
 		[
 			"HAHAHAHAHA"
@@ -18,6 +20,7 @@ func _init() -> void:
 		SpeakerLines.Response.new("What's up Gregory. Did you see anything cool lately? Maybe government agents?", line_2),
 		SpeakerLines.Response.new("Yeah nevermind I'm not dealing with this", line_3)
 	] as Array[SpeakerLines.Response]
+	
 	if Globals.accusable():
 		self.dialogue_root.response_options.append(SpeakerLines.Response.new("I know you're the leaker Gregory, you're coming with me.", SpeakerLines.new("Gregory", ["HAHAHAHAHHAA!!! IDIOT!!!"]), "accused"))
 	

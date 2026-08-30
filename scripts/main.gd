@@ -1,6 +1,40 @@
 class_name Main
 extends Node3D
 
+var complete_description = """[b][u]Description:[/u][/b]
+Compound 87-C is an odorless, pale-yellow dust with particle size averaging 0.2 microns. The compound is known to cause numerous physiological, neurological, and psychological effects when ingested. Animal studies suggest that approximately ▮ grams would be fatal to the average adult human.
+
+Compound 87-C is able to form an invisible aerosol extremely easily, even with minor agitation and low humidity.
+
+[b][u]Chemical analysis:[/u][/b]
+An initial spectroscopy study found the substance to be at least partially composed of a Helium-Sulfer excimer. It is unknown how this highly volatile substance remains in a stable solid form at room temperature.
+
+Further analysis of the chemical structure is on hold following the incident at ▮▮▮▮▮▮▮▮ lab in North Carolina. (Incident report has been reclassified and is no longer contained in this dossier.)
+
+[b][u]Handling precautions:[/u][/b]
+Compound 87-C should be contained within a non-reactive ampule at all times. If a sample of the compound is released, either accidentally or intentionally, all persons within a 30-meter radius should immediately cover their mouth, hold their breath, and exit the vicinity while gently exhaling through their nose.
+
+Ordinary dust/gas masks should not be assumed to be adequate protection. Better forms of protection are currently being developed for planned testing, transportation, and deployment."""
+
+var complete_effects = """[b][u]Effects:[/u][/b]
+Within 15 minutes of direct contact, ingestion, or inhalation of compound 87-C, subjects report a brief period of lightheadedness followed immediately by a drop in resting heart-rate. The initial physiological effects are noticeable as a moderate drop in stress. Subjects prone to anxious or paranoid behaviors appear joyful in low-stimulation environments, and disinterested in environments with negative stimulus. Within 1 hour of exposure, subjects enter a sustained period of euphoria.
+The outward effects of the euphoria differ case-by-case, but nearly all subjects demonstrate an attitude of amusement at otherwise troubling information. In one instance, a subject was told that a nuclear strike was expected to impact their hometown. The subject stared at the wall for a few moments before beginning to chuckle to themself. The laughter continued for approximately 45 minutes, escalating and subsiding at random intervals.
+
+Within 1.5 hours of exposure, physiological symptoms become noticeable. In all cases, the victim’s skin becomes pale across the entire body. Medical examination shows no evidence of anemia accompanying this skin discoloration. In about 75% of cases, the paleness is accompanied by increased redness near the nose and cheekbones.
+
+Within 2 hours of exposure, 100% of victims experience sudden ▮▮▮▮▮▮▮▮▮▮ ▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮ This is usually followed by a momentary loss of consciousness. Acts of physical violence in the ensuing alertness are rare, but not unreported. In cases where subjects do become violent, supervisors report indications of heightened dexterity, balance, and acrobatic ability.
+
+Unless certain measures are taken (see protocol 87-D), all subjects will eventually become preoccupied by their own amusement, to the extent they pay no attention to any person attempting to communicate with them or touch them in any way. Subjects appear to be incapable of experiencing pain, and will continue to engage in behaviors such as dance, juggling, balancing on furniture, or telling jokes to themselves, even if they are suffering from profuse bleeding, broken bones, or missing limbs. While subjects do not appear to be immune to physical ailment, they appear to have no need to consume food or water for upwards of 3 months.
+"""
+var complete_origin = """[b][u]Source[/u][/b]
+There is currently no known method of synthesizing compound 87-C. All known samples were obtained from site 87-A. Site 87-A is a remote location near ▮▮▮▮▮▮▮▮▮ New Mexico containing the wreckage of ▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮
+▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮.
+
+[b][u]Ongoing incident report[/u][/b]
+On August 23, 1953, a copy of indecent report 87-C-NC1 was reported missing from a secure compartmentalized information facility in DC. Several other documents related to 87-C have since been reported missing from various nearby facilities. Around the same time, a suspicious vehicle was noticed leaving the site. The plate on the vehicle was registered to a “Dr Philip Blanc”, a name not found in any other government database.  The vehicle was later spotted in the parking lot of the ▮▮▮▮▮▮▮▮▮ ▮▮▮▮▮▮▮▮▮ hotel, during an ongoing campaign banquet hosted by Senator Perry Terrell. An investigation unit was dispatched to recover the lost documents and prevent further unauthorized disclosure.
+"""
+
+
 # It's common to have 1 root scene that contains the current level
 # and anything that should be persisted between levels
 # the Main instance can be found via Globals.main
@@ -72,6 +106,8 @@ func _input(event: InputEvent) -> void:
 			%Player.unhide_ui()
 			%DossierBG.visible = false
 			%Dossier1.visible = false
+			%Dossier2.visible = false
+			%Dossier3.visible = false
 			%DossierIndex.visible = false
 		else:
 			dossier_out = true
@@ -83,20 +119,13 @@ func _input(event: InputEvent) -> void:
 
 # Update the UI to un-redact dossier info based on our 3 "knows" bools
 func update_dossier(knows_origin, knows_happy_effects, knows_aliens):
-	var dossier = "Current progress: \n"
-	if knows_origin:
-		dossier += "1. Originated in a lab in North Carolina\n"
-	else:
-		dossier += "1. UNKNOWN\n"
+	if knows_aliens: 
+		%Dossier1.text = complete_description
 	if knows_happy_effects:
-		dossier += "2. The substance causes subjects to become overly happy and eventually die\n"
-	else:
-		dossier += "2. UNKNOWN\n"
-	if knows_aliens:
-		dossier += "3. Substance came from an alien landing\n"
-	else:
-		dossier += "3. UNKNOWN\n"
-	%Dossier0.text = dossier
+		%Dossier2.text = complete_effects
+	if knows_origin:
+		%Dossier3.text = complete_origin
+
 func accuse(person: String) -> void:
 	%Player.hide_ui()
 	%EndScreen.visible = true

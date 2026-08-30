@@ -4,6 +4,8 @@ extends Cutscene
 func _init() -> void:
 	super._ready()
 	self.index = 0
+
+func update():
 	self.dialogue_root = SpeakerLines.new("Paul", 
 		[
 			"Hey, how's it going.",
