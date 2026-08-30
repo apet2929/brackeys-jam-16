@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://hw40gufuto5x" path="res://scenes/dinner_party_room.tscn" id="11_0ld40"]
 [ext_resource type="Texture2D" uid="uid://dm0e3mxerfe33" path="res://assets/sprites/default-male/default-male.png" id="11_jbj1t"]
 [ext_resource type="Texture2D" uid="uid://bttbxm1qyunc7" path="res://assets/sprites/default-female/default-female.png" id="12_jkv2x"]
+[ext_resource type="PackedScene" uid="uid://bu5nag65jgmve" path="res://scenes/candle.tscn" id="12_trceg"]
 [ext_resource type="Script" uid="uid://bvkdalqluxjb3" path="res://scripts/dialogue/controllers/cc_shirley.gd" id="13_jbj1t"]
 [ext_resource type="Script" uid="uid://bgmnkxxyofq17" path="res://scripts/dialogue/controllers/cc_gregory.gd" id="15_dp3eg"]
 [ext_resource type="Script" uid="uid://bgn855cwcoalp" path="res://scripts/dialogue/controllers/cc_melissa.gd" id="15_muem4"]
@@ -214,7 +215,7 @@ autowrap_mode = 2
 
 [node name="Player" parent="." unique_id=1432795309 instance=ExtResource("3_jyhfs")]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1561297, -3.0458903, 16.073414)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.07654393, -3.0458903, 16.846827)
 
 [node name="LeftFootMarker" type="Marker3D" parent="Player" unique_id=2071499936]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -1)
@@ -330,3 +331,21 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.020838, -2.8556004, -1.710
 
 [node name="Marker3D7" type="Marker3D" parent="navigation_markers" unique_id=611141409 groups=["nav_group_bar"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.452112, -2.8556004, -1.582274)
+
+[node name="candle" parent="." unique_id=1835713593 instance=ExtResource("12_trceg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.054560393, -1.9196607, 5.869292)
+
+[node name="candle2" parent="." unique_id=2076753157 instance=ExtResource("12_trceg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.012932, -1.9196609, 5.7739496)
+
+[node name="candle3" parent="." unique_id=206066076 instance=ExtResource("12_trceg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.050205, -1.9196609, 12.911039)
+
+[node name="candle4" parent="." unique_id=943537264 instance=ExtResource("12_trceg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.027605683, -1.9196607, 12.958856)
+
+[node name="candle5" parent="." unique_id=1494575692 instance=ExtResource("12_trceg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.108492, -1.9196608, 12.992368)
+
+[node name="candle6" parent="." unique_id=1193177204 instance=ExtResource("12_trceg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.100228, -1.919661, 5.8297367)
