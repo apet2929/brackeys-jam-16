@@ -229,7 +229,6 @@ vertical_alignment = 1
 
 [node name="EndScreen" type="ColorRect" parent="UI" unique_id=993794003]
 unique_name_in_owner = true
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -240,7 +239,6 @@ color = Color(0.74509805, 0.74509805, 0.74509805, 1)
 
 [node name="EndTitle" type="Label" parent="UI/EndScreen" unique_id=263905110]
 unique_name_in_owner = true
-visible = false
 layout_mode = 1
 anchors_preset = 13
 anchor_left = 0.5
@@ -254,12 +252,12 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("4_0ld40")
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 128
 text = "Congratulations"
 horizontal_alignment = 1
 
 [node name="EndText" type="Label" parent="UI/EndScreen" unique_id=1071001341]
 unique_name_in_owner = true
-visible = false
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 1
 anchors_preset = 13
@@ -281,6 +279,7 @@ autowrap_mode = 2
 
 [node name="fade_transition" parent="UI" unique_id=15383382 instance=ExtResource("2_eb6dy")]
 unique_name_in_owner = true
+visible = false
 layout_mode = 1
 
 [node name="Player" parent="." unique_id=1432795309 instance=ExtResource("3_jyhfs")]

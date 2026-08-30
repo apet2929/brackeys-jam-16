@@ -5,6 +5,9 @@
 [ext_resource type="FontFile" uid="uid://dtmadfriyh1m1" path="res://assets/fonts/trade-gothic-bold-condensed-no-20-opentype_ufonts.com.otf" id="3_1rujk"]
 [ext_resource type="Script" uid="uid://delgn2fknvosh" path="res://scripts/dialogue/responses_container.gd" id="3_em7o4"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0ld40"]
+bg_color = Color(0.19215687, 0.19215687, 0.19215687, 0.8509804)
+
 [sub_resource type="Theme" id="Theme_xqq2a"]
 
 [node name="Margin" type="MarginContainer" unique_id=663509831]
@@ -23,6 +26,7 @@ script = ExtResource("1_ss684")
 
 [node name="Div" type="PanelContainer" parent="." unique_id=429180878]
 layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_0ld40")
 
 [node name="Padding2" type="MarginContainer" parent="Div" unique_id=989866443]
 layout_mode = 2
@@ -48,6 +52,10 @@ theme_override_fonts/normal_font = ExtResource("3_1rujk")
 theme_override_fonts/bold_font = ExtResource("3_1rujk")
 theme_override_font_sizes/normal_font_size = 48
 text = "Samuel"
+
+[node name="Container" type="Control" parent="Div/Padding2/VBoxContainer" unique_id=960881973]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
 
 [node name="Lines" type="RichTextLabel" parent="Div/Padding2/VBoxContainer" unique_id=223152055]
 unique_name_in_owner = true
